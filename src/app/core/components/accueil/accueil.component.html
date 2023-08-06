@@ -1,0 +1,171 @@
+<!-- Responsive navbar-->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container px-5">
+    <a class="navbar-brand">ENSAH TERRAIN <i class="bi bi-balloon-heart-fill"></i></a>
+    <button class="navbar-toggler" type="button" (click)="collapse.toggle()" [attr.aria-expanded]="!isCollapsed "><span
+        class="navbar-toggler-icon"></span></button>
+    <div class="collapse navbar-collapse" #collapse="ngbCollapse" [(ngbCollapse)]="isCollapsed ">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a (click)="handleReserverMatch()" class="nav-link">Reserver un match</a></li>
+      </ul>
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link">About the application</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+
+
+<!-- Page Content-->
+<div class="container px-4 px-lg-5">
+  <!-- Heading Row-->
+  <div class="row gx-4 gx-lg-5 align-items-center my-5">
+    <div class="col-lg-7">
+
+      <h1 class="font-weight-light text-center">Matches Of Today</h1>
+      <div class="container-fluid d-flex flex-wrap justify-content-sm-center gap-2">
+        <div class="card">
+          <div class="card-header">
+            Match de Football
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-4 text-center">
+                <img width="50px" src="https://lastfm.freetls.fastly.net/i/u/ar0/6e24f0e8ef2a4857a9c6368000915a72.jpg"
+                  alt="Barcelone" class="img-fluid">
+                <h5>Barcelone</h5>
+              </div>
+              <div class="col-4 text-center">
+                <h1>VS</h1>
+              </div>
+              <div class="col-4 text-center">
+                <img width="50px" src="https://lastfm.freetls.fastly.net/i/u/ar0/6e24f0e8ef2a4857a9c6368000915a72.jpg"
+                  alt="Real Madrid" class="img-fluid">
+                <h5>Real Madrid</h5>
+              </div>
+            </div>
+            <p class="card-text mt-4">Date du match: 01 janvier 2024</p>
+            <p class="card-text">Stade: Camp Nou, Barcelone</p>
+            <!-- Ajoutez ici d'autres détails que vous souhaitez afficher -->
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header">
+            Match de Football
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-4 text-center">
+                <img width="50" src="https://lastfm.freetls.fastly.net/i/u/ar0/6e24f0e8ef2a4857a9c6368000915a72.jpg"
+                  alt="Barcelone" class="img-fluid">
+                <h5>Barcelone</h5>
+              </div>
+              <div class="col-4 text-center">
+                <h1>VS</h1>
+              </div>
+              <div class="col-4 text-center">
+                <img width="50" src="https://lastfm.freetls.fastly.net/i/u/ar0/6e24f0e8ef2a4857a9c6368000915a72.jpg"
+                  alt="Real Madrid" class="img-fluid">
+                <h5>Real Madrid</h5>
+              </div>
+            </div>
+            <p class="card-text mt-4">Date du match: 01 janvier 2024</p>
+            <p class="card-text">Stade: Camp Nou, Barcelone</p>
+            <!-- Ajoutez ici d'autres détails que vous souhaitez afficher -->
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header">
+            Match de Football
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-4 text-center">
+                <img width="50" src="https://lastfm.freetls.fastly.net/i/u/ar0/6e24f0e8ef2a4857a9c6368000915a72.jpg"
+                  alt="Barcelone" class="img-fluid">
+                <h5>Barcelone</h5>
+              </div>
+              <div class="col-4 text-center">
+                <h1>VS</h1>
+              </div>
+              <div class="col-4 text-center">
+                <img width="50" src="https://lastfm.freetls.fastly.net/i/u/ar0/6e24f0e8ef2a4857a9c6368000915a72.jpg"
+                  alt="Real Madrid" class="img-fluid">
+                <h5>Real Madrid</h5>
+              </div>
+            </div>
+            <p class="card-text mt-4">Date du match: 01 janvier 2024</p>
+            <p class="card-text">Stade: Camp Nou, Barcelone</p>
+            <!-- Ajoutez ici d'autres détails que vous souhaitez afficher -->
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header">
+            Match de Football
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-4 text-center">
+                <img width="50" src="https://lastfm.freetls.fastly.net/i/u/ar0/6e24f0e8ef2a4857a9c6368000915a72.jpg"
+                  alt="Barcelone" class="img-fluid">
+                <h5>Barcelone</h5>
+              </div>
+              <div class="col-4 text-center">
+                <h1>VS</h1>
+              </div>
+              <div class="col-4 text-center">
+                <img width="50" src="https://lastfm.freetls.fastly.net/i/u/ar0/6e24f0e8ef2a4857a9c6368000915a72.jpg"
+                  alt="Real Madrid" class="img-fluid">
+                <h5>Real Madrid</h5>
+              </div>
+            </div>
+            <p class="card-text mt-4">Date du match: 01 janvier 2024</p>
+            <p class="card-text">Stade: Camp Nou, Barcelone</p>
+            <!-- Ajoutez ici d'autres détails que vous souhaitez afficher -->
+          </div>
+        </div>
+
+
+
+
+      </div>
+
+
+
+
+
+    </div>
+    <div class="col-lg-5">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+  <!-- Call to Action-->
+  <!-- <div class="card text-white bg-secondary my-5 py-4 text-center">
+        <div class="card-body"><p class="text-white m-0">This call to action card is a great place to showcase some important information or display a clever tagline!</p></div>
+    </div> -->
+  <!-- Content Row-->
+  <div class="row gx-4 gx-lg-5 d-flex justify-content-center">
+    <div class="col-md-4 mb-5">
+      <div class="card h-100">
+        <div class="card-body text-center">
+          <h2 class="card-title">ENSAH</h2>
+          <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem magni quas ex numquam,
+            maxime minus quam molestias corporis quod, ea minima accusamus.</p>
+          <div class="d-flex justify-content-center">
+            <img src="../assets/images/logo-ensah.png" width="100" />
+          </div>
+        </div>
+        <div class="card-footer"><a class="btn btn-primary w-100" href="https://www.ensah.ma">More Info</a></div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Footer-->
+<footer class="py-2 bg-dark">
+  <div class="container px-4 px-lg-5">
+    <p class="m-0 text-center text-white">Made with Love <i class="bi bi-heart-fill text-danger"></i> By AZIZ
+      Mohammed</p>
+  </div>
+</footer>

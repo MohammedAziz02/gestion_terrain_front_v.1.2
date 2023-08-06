@@ -1,0 +1,178 @@
+<div *ngIf="userprofile" class="container-fluid px-4 mt-4">
+    <div class="row">
+        <div class="col-xl-4">
+            <!-- Profile picture card-->
+            <div class="card mb-4 mb-xl-0">
+                <div class="card-header text-center">Profile Picture</div>
+                <div class="card-body text-center">
+                    <form>
+                        <!-- Profile picture image-->
+                        <img class="img-account-profile rounded-circle mb-2"
+                            src="http://bootdey.com/img/Content/avatar/avatar1.png" alt="">
+                        <!-- Profile picture help block-->
+                        <div class="small font-italic text-muted mb-4">JPG or PNG no larger than 5 MB</div>
+                        <!-- Profile picture upload button-->
+
+                        <button class="btn btn-primary" type="submit">Upload new image</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-6">
+            <div class="d-flex justify-content-center mb-2" *ngIf="profileService.isLoading && loadingUpdateProfile">
+                <div class="spinner-grow" role="status"> </div>
+            </div>
+            <!-- Account details card-->
+            <div class="card mb-6">
+                <div class="card-header text-center">Account Details</div>
+                <div class="card-body">
+                    <form (ngSubmit)="onsubmit(userForm)" #userForm="ngForm">
+                        <!-- Form Group (username)-->
+                        <div class="mb-3">
+                            <label class="small mb-1" for="inputUsername">Academic Email (cannot change it) </label>
+                            <input class="form-control" id="inputUsername" type="text" name="academicemail"
+                                [(ngModel)]="userprofile.academicEmail" [value]="userprofile.academicEmail" readonly>
+                        </div>
+                        <!-- Form Row-->
+                        <div class="row gx-3 mb-3">
+                            <!-- Form Group (first name)-->
+                            <div class="col-md-6">
+                                <label class="small mb-1" for="inputFirstName">First name</label>
+                                <input class="form-control" id="inputFirstName" type="text"
+                                    placeholder="Enter your first name" name="firstName"
+                                    [(ngModel)]="userprofile.firstName" [value]="userprofile.firstName"
+                                    #firstname="ngModel"
+                                    [ngClass]="{ 'is-invalid': firstname.touched && firstname.invalid }" required>
+                                <div class="invalid-feedback" *ngIf="firstname.touched && firstname.invalid">
+                                    <p *ngIf="firstname.invalid">FirstName is required</p>
+                                </div>
+                            </div>
+                            <!-- Form Group (last name)-->
+                            <div class="col-md-6">
+                                <label class="small mb-1" for="inputLastName">Last name</label>
+                                <input class="form-control" id="inputLastName" type="text"
+                                    placeholder="Enter your last name" name="lastName"
+                                    [(ngModel)]="userprofile.lastName" [value]="userprofile.lastName"
+                                    #lastname="ngModel"
+                                    [ngClass]="{ 'is-invalid': lastname.touched && lastname.invalid }" required>
+                                <div class="invalid-feedback" *ngIf="lastname.touched && lastname.invalid">
+                                    <p *ngIf="lastname.invalid">lastname is required</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Form Row        -->
+                        <div class="row gx-3 mb-3">
+                            <!-- Form Group (organization name)-->
+                            <div class="col-md-6">
+                                <label for="mobilephone">Mobile phone</label>
+                                <input type="text" class="form-control" id="mobilephone" name="phonenumber"
+                                    [(ngModel)]="userprofile.phoneNumber" #phonenumber="ngModel"
+                                    [ngClass]="{ 'is-invalid': phonenumber.touched && phonenumber.invalid }" required>
+                                <div class="invalid-feedback" *ngIf="phonenumber.touched && phonenumber.invalid">
+                                    <p *ngIf="phonenumber.invalid">phonenumber is required</p>
+                                </div>
+                            </div>
+                            <!-- Form Group (location)-->
+                            <div class="col-md-6">
+                                <label for="grade">grade</label>
+                                <select class="form-control" id="grade" name="grade" name="grade"
+                                    [(ngModel)]="userprofile.grade" [value]="userprofile.grade" #grade="ngModel"
+                                    [ngClass]="{ 'is-invalid': grade.touched && grade.invalid }" required>
+                                    <option value="CP1">CP1</option>
+                                    <option value="CP2">CP2</option>
+                                    <option value="GI1">GI1</option>
+                                    <option value="GI2">GI2</option>
+                                    <option value="GI3">GI3</option>
+                                    <option value="GC1">GC1</option>
+                                    <option value="GC2">GC2</option>
+                                    <option value="GC3">GC3</option>
+                                    <option value="GEE1">GEE1</option>
+                                    <option value="GEE2">GEE2</option>
+                                    <option value="GEE3">GEE3</option>
+                                    <option value="GEER1">GEER1</option>
+                                    <option value="GEER2">GEER2</option>
+                                    <option value="GEER3">GEER3</option>
+                                    <option value="GM1">GM1</option>
+                                    <option value="GM2">GM2</option>
+                                    <option value="GM3">GM3</option>
+                                    <option value="ID1">ID1</option>
+                                    <option value="ID2">ID2</option>
+                                    <option value="ID3">ID3</option>
+                                </select>
+                                <div class="invalid-feedback" *ngIf="grade.touched && grade.invalid">
+                                    <p *ngIf="grade.invalid">grade is required</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Form Group (email address)-->
+                        <div class="mb-3">
+                            <label class="small mb-1" for="inputEmailAddress">Normal Email address</label>
+                            <input class="form-control" id="inputEmailAddress" type="email"
+                                placeholder="Enter your email address" name="normalemail"
+                                [(ngModel)]="userprofile.normalEmail" #normalemail="ngModel"
+                                [ngClass]="{ 'is-invalid': normalemail.touched && normalemail.invalid }"
+                                pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" required>
+
+                            <div class="invalid-feedback" *ngIf="normalemail.touched && normalemail.invalid">
+                                <p *ngIf="normalemail.errors?.['required']">normalemail is required</p>
+                                <p *ngIf="normalemail.errors?.['pattern']">normalemail should be like AAAA@xxx.xx</p>
+                            </div>
+                        </div>
+
+                        <!-- Save changes button-->
+                        <button [disabled]="userForm.invalid" class="btn btn-primary w-100" type="submit"> update
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-2">
+            <div *ngIf="messagepasschangedsuccess">
+                <div class="alert alert-success text-center mb-2" role="alert">
+                    <strong>Success!</strong> Password changed successfully.
+                </div>
+            </div>
+            <div *ngIf="messagepasschangederror">
+                <div class="alert alert-danger text-center mb-2" role="alert">
+                    <strong>Error!</strong> Incorrect Old password.
+                </div>
+            </div>
+            <div class="card mb-6">
+                <div class="d-flex justify-content-center mb-2" *ngIf="profileService.isLoading && loadingUpdatePassword">
+                    <div class="spinner-grow" role="status"> </div>
+                </div>
+                
+                <div class="card-header text-center">Change Password</div>
+                <div class="card-body">
+                    <form (ngSubmit)="onchangePassword()" #changepassform="ngForm">
+                        <!-- Form Group (old password)-->
+                        <div class="mb-3">
+                            <label class="small mb-1" for="oldpassword">Old Password</label>
+                            <input type="password" class="form-control" id="oldpassword" name="oldpassword" [(ngModel)]="oldPassword"
+                                #oldpassword="ngModel" [ngClass]="{ 'is-invalid': oldpassword.touched && oldpassword.invalid }" required>
+                            <div class="invalid-feedback" *ngIf="oldpassword.touched && oldpassword.invalid">
+                                <p *ngIf="oldpassword.invalid">oldpassword is required</p>
+                            </div>
+                        </div>
+                        <!-- Form Group (new  password)-->
+                        <div class="mb-3">
+                            <label class="small mb-1" for="newpassword">new Password</label>
+                            <input type="password" class="form-control" id="newpassword" name="newpassword" [(ngModel)]="newPassword"
+                                #newpassword="ngModel" [ngClass]="{ 'is-invalid': newpassword.touched && newpassword.invalid }" required>
+                            <div class="invalid-feedback" *ngIf="newpassword.touched && newpassword.invalid">
+                                <p *ngIf="newpassword.invalid">newpassword is required</p>
+                            </div>
+                        </div>
+                        <button [disabled]="changepassform.invalid" class="btn btn-outline-primary w-100" type="submit">
+                            Update
+                        </button>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>

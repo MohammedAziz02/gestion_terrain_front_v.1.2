@@ -1,0 +1,161 @@
+<div class="d-flex justify-content-center" *ngIf="authService.isLoading">
+    <div class="spinner-grow" role="status"> </div>
+</div>
+
+<div *ngIf="messageerror">
+    <div class="alert alert-danger text-center" role="alert">
+        {{messageerror}}
+    </div>
+</div>
+
+<form class="shadow bg-light p-4 mb-5 rounded " (ngSubmit)="onSubmit(userForm)" #userForm="ngForm">
+    <div>
+        <h3 class="text-center">SIGNUP <i class="bi bi-box-arrow-in-right"></i></h3>
+    </div>
+    <div class="form-group">
+        <label for="firstname">First Name</label>
+        <input type="text" class="form-control" id="firstname" name="firstname" [(ngModel)]="signuprequest.firstName"
+            #firstname="ngModel" [ngClass]="{ 'is-invalid': firstname.touched && firstname.invalid }" required />
+        <div class="invalid-feedback" *ngIf="firstname.touched && firstname.invalid">
+            <p *ngIf="firstname.invalid">FirstName is required</p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="lastname">Last Name</label>
+        <input type="text" class="form-control" id="lastname" name="lastname" [(ngModel)]="signuprequest.lastName"
+            #lastname="ngModel" [ngClass]="{ 'is-invalid': lastname.touched && lastname.invalid }" required>
+        <div class="invalid-feedback" *ngIf="lastname.touched && lastname.invalid">
+            <p *ngIf="lastname.invalid">lastname is required</p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="mobilephone">Mobile phone</label>
+        <input type="text" class="form-control" id="mobilephone" name="phonenumber"
+            [(ngModel)]="signuprequest.phonenumber" #phonenumber="ngModel"
+            [ngClass]="{ 'is-invalid': phonenumber.touched && phonenumber.invalid }" required>
+        <div class="invalid-feedback" *ngIf="phonenumber.touched && phonenumber.invalid">
+            <p *ngIf="phonenumber.invalid">phonenumber is required</p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="normalemail">normal email</label>
+        <input type="text" class="form-control" id="normalemail" name="normalemail"
+            [(ngModel)]="signuprequest.normalemail" #normalemail="ngModel"
+            [ngClass]="{ 'is-invalid': normalemail.touched && normalemail.invalid }"
+            pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" required>
+
+        <div class="invalid-feedback" *ngIf="normalemail.touched && normalemail.invalid">
+            <p *ngIf="normalemail.errors?.['required']">normalemail is required</p>
+            <p *ngIf="normalemail.errors?.['pattern']">normalemail should be like AAAA@xxx.xx</p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="academicemail">Academic email</label>
+        <input type="text" class="form-control" id="academicemail" name="academicemail"
+            [(ngModel)]="signuprequest.academicemail" #academicemail="ngModel"
+            [ngClass]="{ 'is-invalid': academicemail.touched && academicemail.invalid }" pattern="^.+@etu\.uae\.ac\.ma$"
+            required>
+
+        <div class="invalid-feedback" *ngIf="academicemail.touched && academicemail.invalid">
+            <p *ngIf="academicemail.errors?.['required']">academic email is required</p>
+            <p *ngIf="academicemail.errors?.['pattern']">academic email should be like .......@etu.uae.ac.ma</p>
+        </div>
+    </div>
+    <div class="row align-items-center my-3">
+
+        <div class="col-6 ">
+            <label for="picture">Picture</label>
+            <input type="file" class="form-control" id="picture" name="picture" [(ngModel)]="signuprequest.picture"
+                (change)="onFileSelected($event)" accept="image/jpeg, image/png" required>
+
+        </div>
+
+        <div *ngIf="imgSrc" class="col-6 text-center shadow p-2 ">
+            <img [src]="imgSrc" alt="Avatar" class="img-fluid object-fit-cover border rounded ">
+        </div>
+
+        <div class="text-danger" *ngIf="!isValidatedimg">
+            Max : 3 MO
+        </div>
+
+
+
+
+
+    </div>
+
+
+    <div class="form-group">
+        <label for="role">Role</label>
+        <select [ngClass]="{ 'is-invalid': role.touched && role.invalid }" class="form-control" id="role" name="role"
+            [(ngModel)]="signuprequest.role" #role="ngModel" required>
+            <option value="USER">USER</option>
+            <option value="ADMIN">ADMIN</option>
+        </select>
+        <div class="invalid-feedback" *ngIf="role.touched && role.invalid">
+            <p *ngIf="role.invalid">Role is required</p>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="grade">grade</label>
+        <select [ngClass]="{ 'is-invalid': grade.touched && grade.invalid }" class="form-control" id="grade"
+            name="grade" [(ngModel)]="signuprequest.grade" #grade="ngModel" required>
+            <option value="CP1">CP1</option>
+            <option value="CP2">CP2</option>
+            <option value="GI1">GI1</option>
+            <option value="GI2">GI2</option>
+            <option value="GI3">GI3</option>
+            <option value="GC1">GC1</option>
+            <option value="GC2">GC2</option>
+            <option value="GC3">GC3</option>
+            <option value="GEE1">GEE1</option>
+            <option value="GEE2">GEE2</option>
+            <option value="GEE3">GEE3</option>
+            <option value="GEER1">GEER1</option>
+            <option value="GEER2">GEER2</option>
+            <option value="GEER3">GEER3</option>
+            <option value="GM1">GM1</option>
+            <option value="GM2">GM2</option>
+            <option value="GM3">GM3</option>
+            <option value="ID1">ID1</option>
+            <option value="ID2">ID2</option>
+            <option value="ID3">ID3</option>
+        </select>
+        <div class="invalid-feedback" *ngIf="grade.touched && grade.invalid">
+            <p *ngIf="grade.invalid">grade is required</p>
+        </div>
+    </div>
+
+
+
+    <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" class="form-control" id="password" name="password" [(ngModel)]="signuprequest.password"
+            #password="ngModel" [ngClass]="{ 'is-invalid': password.touched && password.invalid }" required>
+        <div class="invalid-feedback" *ngIf="password.touched && password.invalid">
+            <p *ngIf="password.invalid">password is required</p>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="passwordconfirm">Confirm Password</label>
+        <input type="password" class="form-control" id="passwordconfirm" name="passwordconfirm"
+            [(ngModel)]="signuprequest.confirmPassword" #passwordconfirm="ngModel"
+            [ngClass]="{ 'is-invalid': passwordconfirm.touched && passwordconfirm.invalid }" required>
+        <div class="invalid-feedback" *ngIf="passwordconfirm.touched">
+            <p *ngIf="passwordconfirm.errors?.['required']">Confirm Password is required</p>
+            <p *ngIf="passwordconfirm.value !== signuprequest.password">Passwords do not match</p>
+        </div>
+    </div>
+
+
+    <div class="d-flex justify-content-between ">
+        <button [disabled]="userForm.invalid || !isValidatedimg" type="submit"
+            class="btn w-50 btn-success mt-2">Submit</button>
+        <button class="btn btn-secondary w-25 mt-2" [routerLink]="['/accueil//login']"> <i class="bi bi-arrow-left"></i>
+            Login
+        </button>
+    </div>
+
+</form>
