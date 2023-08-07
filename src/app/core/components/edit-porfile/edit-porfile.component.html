@@ -1,30 +1,52 @@
 <div *ngIf="userprofile" class="container-fluid px-4 mt-4">
+
     <div class="row">
         <div class="col-xl-4">
+            <div class="alert alert-success text-center" *ngIf="messagepicchangedsuccess">
+                <strong>Success!</strong> Profile picture changed successfully.
+            </div>
             <!-- Profile picture card-->
             <div class="card mb-4 mb-xl-0">
-                <div class="card-header text-center">Profile Picture</div>
+                <div class="card-header text-center"> <i class="fa-solid fa-image"></i> Profile Picture</div>
                 <div class="card-body text-center">
-                    <form>
+                    <div>
+                        <!-- <form> -->
                         <!-- Profile picture image-->
-                        <img class="img-account-profile rounded-circle mb-2"
-                            src="http://bootdey.com/img/Content/avatar/avatar1.png" alt="">
+                        <div class="d-flex justify-content-center mb-2" *ngIf="profileService.isLoading && pictureupdate">
+                            <div class="spinner-grow" role="status"> </div>
+                        </div>
+
+                        <div class="profilepic">
+
+                        <img class=" img-fluid shadow  p-3 mb-5 bg-primary !spacing border rounded profilepic__image "
+                            width="300"  [src]="'../../assets/images/' + userprofile.picture" alt="">
+                            <div  class="profilepic__content">
+                                <span class="profilepic__icon"><i class="fas fa-camera"></i></span>
+                                <button (click)="openFileInput()"   class="btn btn-primary">Edit Profile</button>
+                            </div>
+
+                        </div>
+
+                        <input accept="image/jpeg, image/png" type="file" id="fileInput" style="display: none"  (change)="onImageSelected($event)">
+                           
+
                         <!-- Profile picture help block-->
                         <div class="small font-italic text-muted mb-4">JPG or PNG no larger than 5 MB</div>
                         <!-- Profile picture upload button-->
 
-                        <button class="btn btn-primary" type="submit">Upload new image</button>
-                    </form>
+                        <!-- <button class="btn btn-primary" type="submit">Upload new image</button> -->
+                        <!-- </form> -->
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="col-xl-6">
+        <div class="col-xl-6 mb-4">
             <div class="d-flex justify-content-center mb-2" *ngIf="profileService.isLoading && loadingUpdateProfile">
                 <div class="spinner-grow" role="status"> </div>
             </div>
             <!-- Account details card-->
             <div class="card mb-6">
-                <div class="card-header text-center">Account Details</div>
+                <div class="card-header text-center"> <i class="fa-solid fa-newspaper"></i> Account Details</div>
                 <div class="card-body">
                     <form (ngSubmit)="onsubmit(userForm)" #userForm="ngForm">
                         <!-- Form Group (username)-->
@@ -138,18 +160,20 @@
                 </div>
             </div>
             <div class="card mb-6">
-                <div class="d-flex justify-content-center mb-2" *ngIf="profileService.isLoading && loadingUpdatePassword">
+                <div class="d-flex justify-content-center mb-2"
+                    *ngIf="profileService.isLoading && loadingUpdatePassword">
                     <div class="spinner-grow" role="status"> </div>
                 </div>
-                
-                <div class="card-header text-center">Change Password</div>
+
+                <div class="card-header text-center"> <i class="fa-solid fa-key"></i> Change Password</div>
                 <div class="card-body">
                     <form (ngSubmit)="onchangePassword()" #changepassform="ngForm">
                         <!-- Form Group (old password)-->
                         <div class="mb-3">
                             <label class="small mb-1" for="oldpassword">Old Password</label>
-                            <input type="password" class="form-control" id="oldpassword" name="oldpassword" [(ngModel)]="oldPassword"
-                                #oldpassword="ngModel" [ngClass]="{ 'is-invalid': oldpassword.touched && oldpassword.invalid }" required>
+                            <input type="password" class="form-control" id="oldpassword" name="oldpassword"
+                                [(ngModel)]="oldPassword" #oldpassword="ngModel"
+                                [ngClass]="{ 'is-invalid': oldpassword.touched && oldpassword.invalid }" required>
                             <div class="invalid-feedback" *ngIf="oldpassword.touched && oldpassword.invalid">
                                 <p *ngIf="oldpassword.invalid">oldpassword is required</p>
                             </div>
@@ -157,13 +181,14 @@
                         <!-- Form Group (new  password)-->
                         <div class="mb-3">
                             <label class="small mb-1" for="newpassword">new Password</label>
-                            <input type="password" class="form-control" id="newpassword" name="newpassword" [(ngModel)]="newPassword"
-                                #newpassword="ngModel" [ngClass]="{ 'is-invalid': newpassword.touched && newpassword.invalid }" required>
+                            <input type="password" class="form-control" id="newpassword" name="newpassword"
+                                [(ngModel)]="newPassword" #newpassword="ngModel"
+                                [ngClass]="{ 'is-invalid': newpassword.touched && newpassword.invalid }" required>
                             <div class="invalid-feedback" *ngIf="newpassword.touched && newpassword.invalid">
                                 <p *ngIf="newpassword.invalid">newpassword is required</p>
                             </div>
                         </div>
-                        <button [disabled]="changepassform.invalid" class="btn btn-outline-primary w-100" type="submit">
+                        <button [disabled]="changepassform.invalid" class="btn btn-primary w-100" type="submit">
                             Update
                         </button>
 

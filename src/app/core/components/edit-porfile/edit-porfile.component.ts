@@ -15,10 +15,16 @@ export class EditPorfileComponent {
   userprofile: UserDto;
   oldPassword: string;
   newPassword: string;
+  // for message of picturechanged
+  messagepicchangedsuccess: string;
+  // for message of password
   messagepasschangedsuccess: string;
   messagepasschangederror: string;
+  // for loading logic
   loadingUpdateProfile : Boolean = false;
   loadingUpdatePassword : Boolean = false;
+  pictureupdate : Boolean = false;
+ 
 
 
   constructor(protected profileService: ProfileService, private tokenStorageService: TokenStorageService, private router: Router) {
@@ -27,6 +33,10 @@ export class EditPorfileComponent {
 
 
   ngOnInit() {
+    this.messagepasschangederror="";
+    this.messagepasschangedsuccess="";
+    this.messagepicchangedsuccess="";
+
     console.log("edit profile is rendered ngOnInit");
     console.log(this.tokenStorageService.getUser());
     const loggeduser = this.tokenStorageService.getUser();
@@ -57,6 +67,7 @@ export class EditPorfileComponent {
       (data: any) => {
         this.profileService.isLoading = false;
         this.loadingUpdateProfile = false;
+        console.log("data teeest", data);
         this.userprofile = new UserDto(data);
         console.log("second", this.userprofile);
         this.router.navigate(['/home/profile']);
@@ -93,6 +104,39 @@ export class EditPorfileComponent {
         this.messagepasschangederror = error.message;
       }
     )
+  
+  }
+
+
+  openFileInput() {
+    const fileInput = document.getElementById('fileInput') as HTMLInputElement;
+    fileInput.click();
+  }
+
+  // Fonction appelée lorsqu'une image est sélectionnée via le sélecteur de fichier
+  onImageSelected(event: any) {
+    this.messagepicchangedsuccess = "";
+    this.pictureupdate = true;
+    const file = event.target.files[0];
+    const formData = new FormData();
+    formData.append('picture', file);
+    this.profileService.changePicture(formData).subscribe(
+      (data: any) => {
+        console.log("data from updating picture", data);
+        this.profileService.isLoading = false;
+        this.pictureupdate = false;
+        this.userprofile.picture = data.message;
+        this.messagepicchangedsuccess = "Picture changed successfully";
+        // window.location.reload();
+        // this.router.navigate(['/home/profile']);
+      },
+      (error: any) => {
+        console.log(error);
+        this.pictureupdate = false;
+        this.profileService.isLoading = false;
+      }
+    )
+
   
   }
 

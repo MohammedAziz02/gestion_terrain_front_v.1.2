@@ -6,7 +6,7 @@
         class="navbar-toggler-icon"></span></button>
     <div class="collapse navbar-collapse" #collapse="ngbCollapse" [(ngbCollapse)]="isCollapsed ">
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-        <li class="nav-item"><a (click)="handleReserverMatch()" class="nav-link">Reserver un match</a></li>
+        <li class="nav-item"><button (click)="handleReserverMatch()" class="nav-link">Reserver un match</button></li>
       </ul>
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
         <li class="nav-item"><a class="nav-link">About the application</a></li>
@@ -20,6 +20,10 @@
 
 <!-- Page Content-->
 <div class="container px-4 px-lg-5">
+  <div class="alert alert-danger text-center my-5" *ngIf="messageErrornotAuthentificated">
+        <strong > You're not Authenticated, Please Login to continue </strong>
+  </div>
+
   <!-- Heading Row-->
   <div class="row gx-4 gx-lg-5 align-items-center my-5">
     <div class="col-lg-7">

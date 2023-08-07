@@ -17,6 +17,7 @@ import { ReservationterrainUserComponent } from './core/components/reservationte
 import { AuthGuard } from './core/guards/AuthGuard';
 import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 import { EditPorfileComponent } from './core/components/edit-porfile/edit-porfile.component';
+import { AuthInterceptor, authInterceptorProviders } from './core/helpers/auth.interceptor';
 
 
 
@@ -43,7 +44,7 @@ import { EditPorfileComponent } from './core/components/edit-porfile/edit-porfil
 
   
   ],
-  providers: [AuthGuard],
+  providers: [AuthGuard,authInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

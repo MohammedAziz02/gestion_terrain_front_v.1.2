@@ -1,19 +1,21 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container px-5">
-    <a class="navbar-brand">ENSAH TERRAIN <i class="bi bi-balloon-heart-fill"></i></a>
+    <a class="navbar-brand">ENSAH TERRAIN <i class="fa-solid fa-futbol" style="color: #2861c3;"></i> </a>
     <button class="navbar-toggler" type="button" (click)="collapse.toggle()" [attr.aria-expanded]="!isCollapsed "><span
         class="navbar-toggler-icon"></span></button>
 
 
     <div class="collapse navbar-collapse" #collapse="ngbCollapse" [(ngbCollapse)]="isCollapsed ">
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-        <li class="nav-item"><a class="nav-link">Réserver un match</a></li>
+        <li class="nav-item"><a class="nav-link"><i class="fa-solid fa-plus"></i> Réserver un match</a></li>
       </ul>
       <div class="btn-group ms-auto" ngbDropdown role="group" aria-label="Button group with nested dropdown">
-        <button type="button" class="btn btn-outline-light" ngbDropdownToggle>Profile </button>
+        <button type="button" class="btn btn-outline-light" ngbDropdownToggle> <i class="bi bi-person-circle"></i> Profile </button>
         <div class="dropdown-menu" ngbDropdownMenu>
-          <button ngbDropdownItem [routerLink]="['/home/profile']">Show Profile </button>
-          <button ngbDropdownItem [routerLink]="['/home/editprofile']">Edit Profile </button>
+          <button ngbDropdownItem [routerLink]="['/home/profile']"> <i class="fa-solid fa-eye"></i> Show Profile </button>
+          <button ngbDropdownItem [routerLink]="['/home/editprofile']"> <i class="fa-solid fa-user-pen"></i> Edit Profile </button>
+          <div class="dropdown-divider"></div>
+          <button (click)="signOut()" class="btn btn-primary" ngbDropdownItem > <i class="fa-solid fa-right-from-bracket mx-1"></i>Sign Out </button>
         </div>
       </div>
     </div>

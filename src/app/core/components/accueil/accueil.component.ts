@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 })
 export class AccueilComponent {
   isCollapsed =true;
+  messageErrornotAuthentificated : boolean = false;
   constructor(private tokenStorageService: TokenStorageService, private router : Router){
     console.log("accueil is rendered constructor");
   }
@@ -22,8 +23,10 @@ export class AccueilComponent {
 
     if(!this.tokenStorageService.isAutheticated()){
       console.log("user is not authenticated");
+      this.messageErrornotAuthentificated=true;
       return;
     }else{
+      this.messageErrornotAuthentificated=false;
         const authUser = this.tokenStorageService.getUser();
         console.log(authUser);
         if(authUser.role=="ROLE_ADMIN"){

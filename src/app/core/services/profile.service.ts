@@ -35,6 +35,37 @@ export class ProfileService extends BaseService {
   }
 
 
+  changePicture (data: any): any {
+    this.isLoading = true;
+    return this.httpclient.post<any>(URL_API + 'v1/api/shared/profile/changePicture', data);
+  }
+
+
+  // just for testing loading
+  // changePicture(data: any): Observable<any> {
+  //   this.isLoading = true;
+
+  //   // Create a new Observable that wraps the httpclient.post call
+  //   return new Observable<any>((observer) => {
+  //     // Simulate a 5-second delay using setTimeout
+  //     setTimeout(() => {
+  //       this.httpclient.post<any>(URL_API + 'v1/api/shared/profile/changePicture', data)
+  //         .subscribe(
+  //           (response) => {
+  //             this.isLoading = false;
+  //             observer.next(response); // Emit the response to the observable
+  //             observer.complete(); // Complete the observable
+  //           },
+  //           (error) => {
+  //             this.isLoading = false;
+  //             observer.error(error); // Emit the error to the observable
+  //           }
+  //         );
+  //     }, 5000); // 5000 milliseconds (5 seconds)
+  //   });
+  // }
+
+
 
 
 }
