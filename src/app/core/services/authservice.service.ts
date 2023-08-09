@@ -19,12 +19,12 @@ export class AuthserviceService extends BaseService {
 
   register(signUpRequest: any): Observable<any> {
     this.isLoading = true;
-    return this.http.post(URL_API + 'api/auth/signup', signUpRequest);
+    return this.http.post(URL_API + 'v1/api/auth/signup', signUpRequest);
   }
 
   login(login: Login): Observable<any> {
     this.isLoading = true;
-    return this.http.post(URL_API + 'api/auth/signin', login, httpOptionsJson);
+    return this.http.post(URL_API + 'v1/api/auth/signin', login, httpOptionsJson);
   }
 
 
