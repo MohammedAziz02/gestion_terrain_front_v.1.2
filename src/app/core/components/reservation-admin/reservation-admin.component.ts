@@ -2,10 +2,10 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-reservationterrain-admin',
-  templateUrl: './reservationterrain-admin.component.html',
-  styleUrls: ['./reservationterrain-admin.component.css']
+  templateUrl: './reservation-admin.component.html',
+  styleUrls: ['./reservation-admin.component.css']
 })
-export class ReservationterrainAdminComponent {
+export class ReservationAdminComponent {
 
   constructor(){
     console.log("reservationterrainadmin is rendered constructor");

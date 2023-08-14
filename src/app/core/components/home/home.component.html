@@ -7,7 +7,7 @@
 
     <div class="collapse navbar-collapse" #collapse="ngbCollapse" [(ngbCollapse)]="isCollapsed ">
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-        <li class="nav-item"><a class="nav-link"><i class="fa-solid fa-plus"></i> Réserver un match</a></li>
+        <button class="nav-item btn btn-danger" [routerLink]="['/home/reserve']" ><i class="fa-solid fa-plus"></i> Réserver un match</button>
       </ul>
       <div class="btn-group ms-auto" ngbDropdown role="group" aria-label="Button group with nested dropdown">
         <button type="button" class="btn btn-outline-light" ngbDropdownToggle> <i class="bi bi-person-circle"></i> Profile </button>

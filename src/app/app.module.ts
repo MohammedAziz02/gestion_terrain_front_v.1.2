@@ -12,12 +12,16 @@ import { PagenotfoundComponent } from './core/components/pagenotfound/pagenotfou
 import { HomeComponent } from './core/components/home/home.component';
 import { AccueilComponent } from './core/components/accueil/accueil.component';
 import { ProfileComponent } from './core/components/profile/profile.component';
-import { ReservationterrainAdminComponent } from './core/components/reservationterrain-admin/reservationterrain-admin.component';
-import { ReservationterrainUserComponent } from './core/components/reservationterrain-user/reservationterrain-user.component';
+import { ReservationAdminComponent } from './core/components/reservation-admin/reservation-admin.component';
+import { ReservationUserComponent } from './core/components/reservation-user/reservation-user.component';
 import { AuthGuard } from './core/guards/AuthGuard';
 import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 import { EditPorfileComponent } from './core/components/edit-porfile/edit-porfile.component';
 import { AuthInterceptor, authInterceptorProviders } from './core/helpers/auth.interceptor';
+import { ReserveTerrainFootComponent } from './core/components/reserve-terrain-foot/reserve-terrain-foot.component';
+import { ReserveTerrainVolleyComponent } from './core/components/reserve-terrain-volley/reserve-terrain-volley.component';
+import { ReservationService } from './core/services/reservation.service';
+import { TokenStorageService } from './core/services/token-storage.service';
 
 
 
@@ -30,9 +34,11 @@ import { AuthInterceptor, authInterceptorProviders } from './core/helpers/auth.i
     HomeComponent,
     AccueilComponent,
     ProfileComponent,
-    ReservationterrainAdminComponent,
-    ReservationterrainUserComponent,
-    EditPorfileComponent
+    ReservationAdminComponent,
+    ReservationUserComponent,
+    EditPorfileComponent,
+    ReserveTerrainFootComponent,
+    ReserveTerrainVolleyComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +48,7 @@ import { AuthInterceptor, authInterceptorProviders } from './core/helpers/auth.i
     FormsModule,
     NgbDropdownModule
 
-  
+
   ],
   providers: [AuthGuard,authInterceptorProviders],
   bootstrap: [AppComponent]

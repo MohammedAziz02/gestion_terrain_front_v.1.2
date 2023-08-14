@@ -45,9 +45,9 @@ export class LoginComponent {
         this.tokenStorage.saveUser(data);
         this.role = this.tokenStorage.getUser().role;
         if (this.role === 'ROLE_ADMIN') {
-          this.router.navigate(['/home/reserveradmin']);
+          this.router.navigate(['/home/reserve']);
         } else if (this.role === 'ROLE_USER') {
-          this.router.navigate(['/home/reserveruser']);
+          this.router.navigate(['/home/reserve']);
         }
         console.log('Login success');
       },

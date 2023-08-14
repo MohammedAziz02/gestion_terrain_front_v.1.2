@@ -1,0 +1,12 @@
+  .card {
+    /* Your existing card styles */
+    transition: transform 0.3s; /* Add transition for smooth effect */
+  
+    &.resized {
+      transform: scale(1.09); /* Apply scaling effect when hovered */
+      border-bottom: 3px solid #be2525;
+      border-top:3px solid #be2525; 
+      cursor: pointer;
+    }
+  }
+

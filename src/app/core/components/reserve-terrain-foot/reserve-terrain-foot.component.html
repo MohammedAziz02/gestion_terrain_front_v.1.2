@@ -1,0 +1,79 @@
+<div class="container">
+  <ul ngbNav #nav="ngbNav" class="nav-tabs">
+    <li [ngbNavItem]="index" *ngFor="let day of dates; let index = index">
+      <button ngbNavLink class="day-button">{{ day.day }}</button>
+      <ng-template ngbNavContent>
+        <ul class="list-group">
+          <li class="list-group-item" *ngFor="let date of day.dates">
+          
+            <div class="reservation-entry">
+              <span class="reservation-time">{{ formatDateRange(date) }}</span>
+              <ng-container *ngIf="isCurrentUserReserved(date); else notReservedByCurrentUser">
+                <button class="btn btn-danger w-75" (click)="showmodaldelete(date,cancelConfirmation)"  >Cancel</button>
+               </ng-container>
+              <ng-template #notReservedByCurrentUser>
+                <ng-container *ngIf="!isOtherUsersReserved(date)">
+                  <button class="btn btn-primary w-75" (click)="openReservationModal(date,content)">Réserver</button>
+                </ng-container>
+                <span *ngIf="isOtherUsersReserved(date)" class="reserved-badge w-75 text-center bg-secondary">Réservé</span>
+              </ng-template>
+            </div>
+          </li>
+        </ul>
+      </ng-template>
+    </li>
+   
+  </ul>
+
+  <div [ngbNavOutlet]="nav" class="mt-2"></div>
+</div>
+
+<ng-template #content let-modal>
+  <div class="d-flex justify-content-center" *ngIf="reservationService.isLoading">
+    <div class="spinner-grow" role="status"> </div>
+</div>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Sélectionner un terrain</h4>
+    <button class="btn btn-danger" type="button"  (click)="modal.dismiss()">
+      <span >X</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="d-flex flex-column align-items-center">
+      <div class="text-left">
+        <p> <strong> {{ selectedDate | date:'dd/MM/yyyy HH:mm' }}</strong></p>
+      </div>
+     </div>
+    <form #formf="ngForm">
+    <div class="form-control">
+      <label> Againt who : </label>
+      <input type="text" class="form-control mt-3" name="againtwho"   [(ngModel)]="againstwho" placeholder="Entrez quelque chose"  required>
+    </div>
+  </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button"   class="btn btn-secondary" (click)="modal.dismiss()">Annuler</button>
+    <button type="button" [disabled]="formf.invalid  && !againstwho" class="btn btn-primary" (click)="sendReservation(modal)">Envoyer</button>
+  </div>
+</ng-template>
+
+
+
+<ng-template #cancelConfirmation let-modala>
+  <div class="modal-header">
+    <h4 class="modal-title text-center" id="modal-basic-title">Confirmation</h4>
+    <button class="btn btn-danger" type="button"  (click)="modala.dismiss()">
+      <span >X</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    Are you sure you want to cancel this reservation?
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" (click)="modala.dismiss()"> Keep Reservation</button>
+    <button type="button" class="btn btn-danger" (click)="handleCancel(modala)" > Cancel</button>
+  </div>
+</ng-template>
+
+
+
