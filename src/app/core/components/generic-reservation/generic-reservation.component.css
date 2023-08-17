@@ -1,0 +1,44 @@
+.day-button {
+    justify-content: flex-start;
+    text-align: left;
+    background-color: transparent;
+    border: none;
+    font-weight: bold;
+  }
+  
+  .reservation-entry {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .reservation-time {
+    flex: 1;
+  }
+  
+
+  
+  .terrain {
+    cursor: pointer;
+    text-align: center;
+    border: 2px solid transparent;
+    transition: border-color 0.3s;
+    margin-bottom: 10px;
+  }
+  
+  .terrain img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border: 2px solid transparent;
+    transition: border-color 0.3s;
+  }
+  
+  .terrain.selected img {
+    border-color: blue;
+  }
+  
+  .terrain p {
+    margin-top: 5px;
+    font-size: 14px;
+  }

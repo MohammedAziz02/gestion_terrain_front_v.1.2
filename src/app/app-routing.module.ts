@@ -7,11 +7,11 @@ import { HomeComponent } from './core/components/home/home.component';
 import { AccueilComponent } from './core/components/accueil/accueil.component';
 import { ProfileComponent } from './core/components/profile/profile.component';
 import { ReservationUserComponent } from './core/components/reservation-user/reservation-user.component';
-import { ReservationAdminComponent } from './core/components/reservation-admin/reservation-admin.component';
 import { AuthGuard } from './core/guards/AuthGuard';
 import { EditPorfileComponent } from './core/components/edit-porfile/edit-porfile.component';
 import { ReserveTerrainFootComponent } from './core/components/reserve-terrain-foot/reserve-terrain-foot.component';
 import { ReserveTerrainVolleyComponent } from './core/components/reserve-terrain-volley/reserve-terrain-volley.component';
+import { ReservationAdminComponent } from './core/components/reservation-admin/reservation-admin.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/accueil/signup', pathMatch: 'full' },

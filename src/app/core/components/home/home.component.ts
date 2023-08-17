@@ -19,6 +19,6 @@ export class HomeComponent {
 
   signOut(){
     this.tokenStorageService.signOut();
-    this.router.navigate(['/']);
+    this.router.navigate(['/accueil/login']);
   }
 }

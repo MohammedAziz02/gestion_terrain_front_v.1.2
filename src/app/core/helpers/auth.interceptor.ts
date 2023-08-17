@@ -14,7 +14,7 @@ export class AuthInterceptor implements HttpInterceptor {
     let authReq = req;
     const token = this.token.getToken();
     console.log("interceptor.............");
-    if (token != null) {
+    if (token != null && !req.url.includes('https://api.open-meteo.com/v1/forecast')) {
     
       console.log("form authorization interceptor header");
       authReq = req.clone({ headers: req.headers.set(TOKEN_HEADER_KEY, 'Bearer ' + token) });
