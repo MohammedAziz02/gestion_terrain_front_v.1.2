@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 
+// can be replaced with query params
+
 @Injectable({
   providedIn: 'root'
 })

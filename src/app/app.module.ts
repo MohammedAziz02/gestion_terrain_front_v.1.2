@@ -22,6 +22,7 @@ import { ReserveTerrainFootComponent } from './core/components/reserve-terrain-f
 import { ReserveTerrainVolleyComponent } from './core/components/reserve-terrain-volley/reserve-terrain-volley.component';
 import { ReservationService } from './core/services/reservation.service';
 import { TokenStorageService } from './core/services/token-storage.service';
+import { GenericReservationComponent } from './core/components/generic-reservation/generic-reservation.component';
 
 
 
@@ -38,7 +39,8 @@ import { TokenStorageService } from './core/services/token-storage.service';
     ReservationUserComponent,
     EditPorfileComponent,
     ReserveTerrainFootComponent,
-    ReserveTerrainVolleyComponent
+    ReserveTerrainVolleyComponent,
+    GenericReservationComponent
   ],
   imports: [
     BrowserModule,

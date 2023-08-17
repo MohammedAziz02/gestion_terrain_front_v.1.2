@@ -1,6 +1,7 @@
 export class DateHelper{
+
     public static generateDateList(): { day: string, dates: Date[] }[] {
-        const daysOfWeek = ['Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi'];
+        const daysOfWeek = ['Sunday ', 'Monday ', 'Tuesday ', 'Wednesday ', 'Thursday ', 'Friday ', 'Saturday '];
         const today = new Date();
         
         const futureDate = new Date(today);
@@ -19,7 +20,7 @@ export class DateHelper{
         }
       
         futureDate.setDate(futureDate.getDate() + 1);
-        console.log("day",futureDate.getDay());
+        // console.log("day",futureDate.getDay());
       
         for (let hour = 15; hour < 25; hour++) {
           const date = new Date(futureDate);
@@ -39,5 +40,30 @@ export class DateHelper{
       
       
         return dateList;
+      }
+
+
+
+
+      static formatDateRange(date: Date): string {
+        const startTime = this.formatTime(date.getHours(), date.getMinutes());
+        const endTime = this.formatTime(date.getHours() + 1, date.getMinutes());
+        return `${startTime} - ${endTime}`;
+      }
+      
+      static formatTime(hours: number, minutes: number): string {
+        const formattedHours = hours < 10 ? `0${hours}` : `${hours}`;
+        const formattedMinutes = minutes < 10 ? `0${minutes}` : `${minutes}`;
+        if (hours == 24) {
+          return `00:${formattedMinutes}`;
+        }
+        return `${formattedHours}:${formattedMinutes}`;
+      }
+
+      static formatDate(date : Date) {
+        const year = date.getUTCFullYear();
+        const month = String(date.getUTCMonth() + 1).padStart(2, '0');
+        const day = String(date.getUTCDate()).padStart(2, '0');
+        return `${year}-${month}-${day}`;
       }
 }
