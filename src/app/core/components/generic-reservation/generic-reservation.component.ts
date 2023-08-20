@@ -9,6 +9,7 @@ import { DeleteReservationDto } from '../../models/DeleteReservationDto';
 import { ReservationDto } from '../../models/ReservationDto';
 import { PdfGeneratorService } from '../../services/pdf-generator.service';
 import { WhetherService } from '../../services/whether.service';
+import { UserReservationDate } from '../../models/UserReservationDate';
 
 @Component({
   selector: 'app-generic-reservation',
@@ -19,10 +20,10 @@ export class GenericReservationComponent {
   // for stocking the list of dates generating in the class DateHelper
   dates: { day: string; dates: Date[] }[] = [];
   // quand on click sur reserver cette variable stock la valeur de date correspond au button
-  selectedDate: Date;
+  // selectedDate: Date;
   // quand le modal pop up et on click sur un terrain cette variable va prendre la valeur de terrain soit terrain1 soit terrain2
   selectedTerrain: string = '';
-  //Two data binding in the form : ce variable contient la valeur de je joue contre qui
+  //Two dataoftemperature binding in the form : ce variable contient la valeur de je joue contre qui
   againstwho: string = '';
   // contient la référence du Modal lorsque on clique sur la button réserver
   modalRef: NgbModalRef | null = null;
@@ -34,73 +35,101 @@ export class GenericReservationComponent {
   emailofloggedUser: string;
   // date to delete
   dateToDelete: Date;
-  // boolean an user can reserve only one time per day
-  isReserved: boolean = false;
-  // Temperature Data
-  data: any;
+  // Temperature dataoftemperature
+  dataoftemperature: any;
   /// is loading for weather
-  isWheatherLoading : Boolean =true;
- 
-
+  isWheatherLoading: Boolean = true;
+  selectedDate: Date;
+  isreservatefirstday: boolean = false;
+  isreservatesecondday: boolean = false;
   constructor(
-    private modalService: NgbModal,
+    protected modalService: NgbModal,
     protected reservationService: ReservationService,
     private tokenStorageService: TokenStorageService,
-    private router: Router,
-    private route: ActivatedRoute,
     private pdfgenerator: PdfGeneratorService,
     private whetherService: WhetherService
   ) {
     this.emailofloggedUser = this.tokenStorageService.getUser().email;
   }
 
-  // when rendering the first thing is to fill up the list of date; 14-00 ,15-00,........
-  // aprés on appelle au méthode loadReservedSlots qui va appeler deux api pour remplir les currentUserReservedSlots et les otherUsersReservedSlots
-  // pour faire la logique de reserver - supprimer -reserved
-  ngOnInit() {
+  
+  ngOnInit(): void {
+    this.begin();
+    this.verifyUserReservation();
+  }
+
+
+  // pour vérifier c'est l'utilisateur a réservé le terrain dans un jour ou non soit terrain de foot soit de voley
+  verifyUserReservation(){
+    this.isreservatefirstday = false;
+    this.isreservatesecondday = false;
+    const debut_frist = DateHelper.formatDateto00_00_00(DateHelper.tomorrowDate());
+    console.log("debut_frist", debut_frist);
+    const end_first = DateHelper.formatDateto23_59_59(DateHelper.tomorrowDate());
+    console.log("end_first ", end_first);
+    const x = new UserReservationDate(this.emailofloggedUser, this.selectedTerrain, debut_frist, end_first);
+    this.reservationService.isUserReservatebetween2dates(x).subscribe(
+      (response) => {
+        console.log(response)
+        if(response > 0){
+          this.isreservatefirstday = true;
+        }
+      },
+      (err) => {
+        console.log(err);
+      })
+    
+    const debut_second = DateHelper.formatDateto00_00_00(DateHelper.afterTomorrowDate());
+    console.log("debut_second", debut_second);
+    const end_second = DateHelper.formatDateto23_59_59(DateHelper.afterTomorrowDate());
+    console.log("end_second ", end_second);
+    const y = new UserReservationDate(this.emailofloggedUser, this.selectedTerrain, debut_second, end_second);
+    this.reservationService.isUserReservatebetween2dates(y).subscribe(
+      (response) => {
+        console.log(response)
+        if(response > 0){
+          this.isreservatesecondday = true;
+        }
+      },
+      (err) => {
+        console.log(err);
+      })
+    }
+
+  // c'est méthode qui permet de charger la page par les dates et par la température
+  begin() {
     const selectedStadium = localStorage.getItem('selectedTerrain');
     // this.selectedTerrain = localStorage.getItem('selectedTerrain');
     this.selectedTerrain = selectedStadium !== null ? selectedStadium : '';
-    const isReserved = localStorage.getItem('isReserved');
-    if (isReserved !== null) {
-      this.isReserved = isReserved === 'true' ? true : false;
-    } else {
-      this.isReserved = false;
-    }
-
     this.dates = DateHelper.generateDateList();
     this.loadReservedSlots();
-
     this.whetherService.getWheatherInformations(35.2516, -3.9372).subscribe(
       (response) => {
-        this.isWheatherLoading= false;
-        // console.log(response);
-        this.data = response;
+        this.isWheatherLoading = false;
+        this.dataoftemperature = response;
       },
       (error) => {
-        this.isWheatherLoading= false;
+        this.isWheatherLoading = false;
         console.log(error);
       }
     );
   }
 
+  jj(){
+    window.history.back();
+  }
 
 
-   getTemperatureFromDate(date : Date) {
-    const isoDate = date.toISOString(); // Convert date to ISO8601 format
-    const foundedDate=isoDate.slice(0, 16);
-    // console.log(foundedDate,"converted");
 
-    // console.log(this.data.hourly.time.indexOf(foundedDate),"aa");
-    const index = this.data.hourly.time.indexOf(foundedDate); // Find the index of the ISO8601 date in the JSON data
-    // console.log(this.data.hourly,"hourly");
-    
+  // pour afficher la température a la date time convenable
+  getTemperatureFromDate(date: Date) {
+    const isoDate = date.toISOString(); 
+    const foundedDate = isoDate.slice(0, 16);
+    const index = this.dataoftemperature.hourly.time.indexOf(foundedDate); // Find the index of the ISO8601 date in the JSON dataoftemperature
     if (index !== -1) {
-      // console.log("l9ah wlahila l9ah")
-      return this.data.hourly.temperature_2m[index]; // Return the temperature corresponding to the index
+      return this.dataoftemperature.hourly.temperature_2m[index]; // Return the temperature corresponding to the index
     } else {
-      // console.log("mal9a walo")
-      return null; // Return null if the date is not found in the JSON data
+      return null; // Return null if the date is not found in the JSON dataoftemperature
     }
   }
 
@@ -148,15 +177,31 @@ export class GenericReservationComponent {
       .some((slot) => slot.getTime() == new Date(date).getTime());
   }
 
-  handleclick(date: Date) {
-    let x = this.otherUsersReservedSlots
-      .map((slot) => new Date(slot))
-      .some((slot) => {
-        console.log(slot, date, 'jjaj');
-        return slot.getTime() == new Date(date).getTime();
-      });
-    console.log(x);
+
+  showmodaldelete(date: Date, content: any) {
+    this.dateToDelete = date;
+    this.modalRef = this.modalService.open(content);
   }
+
+
+
+  ifDisabled(date: Date): boolean {
+    let day1 = DateHelper.formatDate(DateHelper.tomorrowDate());
+    let dayoftemplate = DateHelper.formatDate(date);
+    if (day1 === dayoftemplate && this.isreservatefirstday) {
+      return true;
+    }
+    let formattedDate = DateHelper.formatDate(DateHelper.afterTomorrowDate());
+    if (formattedDate === dayoftemplate && this.isreservatesecondday) {
+      return true;
+    }
+
+    return false;
+
+  }
+
+
+
 
   handleCancel(modal: NgbModalRef) {
     const deleteReservation = new DeleteReservationDto(
@@ -165,12 +210,12 @@ export class GenericReservationComponent {
     );
     this.reservationService.deleteReservation(deleteReservation).subscribe(
       (response) => {
-        this.isReserved = false;
-        localStorage.removeItem('isReserved');
+
         this.reservationService.setIsLoading(false);
         console.log(response);
         modal.dismiss();
         this.loadReservedSlots();
+        this.verifyUserReservation();
       },
       (error) => {
         console.log(error);
@@ -178,59 +223,59 @@ export class GenericReservationComponent {
     );
   }
 
-  openReservationModal(date: Date, content: any) {
-    this.selectedDate = date;
-    this.againstwho = '';
-    this.modalRef = this.modalService.open(content);
 
-    console.log('hamid', date);
+openReservationModal(date: Date, content: any) {
+  this.selectedDate = date;
+  this.againstwho = '';
+  this.modalRef = this.modalService.open(content);
+  console.log('hamid', date);
+}
+
+
+
+
+sendReservation(modal: NgbModalRef) {
+  if (
+    this.selectedDate &&
+    this.selectedTerrain &&
+    this.againstwho.trim() !== ''
+  ) {
+    
+
+    console.log('selected date :) ', this.selectedDate);
+    // Construct the request dataoftemperature
+    const reservation = new ReservationDto(
+      this.selectedDate,
+      this.selectedTerrain,
+      this.againstwho
+    );
+    console.log(reservation);
+    // Send the request
+    this.reservationService.addReservation(reservation).subscribe(
+      (response) => {
+        console.log(response);
+        this.reservationService.setIsLoading(false);
+
+        // Close the modal
+        modal.dismiss();
+        this.loadReservedSlots();
+        this.verifyUserReservation();
+        this.pdfgenerator.generateTicket(
+          this.emailofloggedUser,
+          this.againstwho,
+          this.selectedTerrain,
+          this.selectedDate
+        );
+        console.log('saffi hadi hya');
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+
+
   }
-
-  showmodaldelete(date: Date, content: any) {
-    this.dateToDelete = date;
-    this.modalRef = this.modalService.open(content);
-  }
-
-  sendReservation(modal: NgbModalRef) {
-    if (
-      this.selectedDate &&
-      this.selectedTerrain &&
-      this.againstwho.trim() !== ''
-    ) {
-      // localStorage.removeItem("selectedTerrain");
-
-      console.log('selected date :) ', this.selectedDate);
-      // Construct the request data
-      const reservation = new ReservationDto(
-        this.selectedDate,
-        this.selectedTerrain,
-        this.againstwho
-      );
-      console.log(reservation);
-      // Send the request
-      this.reservationService.addReservation(reservation).subscribe(
-        (response) => {
-          console.log(response);
-          this.reservationService.setIsLoading(false);
-          this.isReserved = true;
-          localStorage.setItem('isReserved', 'true');
-          // Close the modal
-          modal.dismiss();
-          this.loadReservedSlots();
-          this.pdfgenerator.generateTicket(
-            this.emailofloggedUser,
-            this.againstwho,
-            this.selectedTerrain,
-            this.selectedDate
-          );
-          console.log('saffi hadi hya');
-        },
-        (error) => {
-          console.log(error);
-        }
-      );
-    }
-  }
+}
 
   formatDateRange(date: Date): string {
     return DateHelper.formatDateRange(date);

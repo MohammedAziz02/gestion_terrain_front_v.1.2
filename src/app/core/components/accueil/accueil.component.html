@@ -19,122 +19,16 @@
 
 
 <!-- Page Content-->
-<div class="container px-4 px-lg-5">
-  <div class="alert alert-danger text-center my-5" *ngIf="messageErrornotAuthentificated">
-        <strong > You're not Authenticated, Please Login to continue </strong>
-  </div>
+<div class="container-fluid border border-2 border-danger px-4 px-lg-5">
+ 
 
   <!-- Heading Row-->
-  <div class="row gx-4 gx-lg-5 align-items-center my-5">
+  <div class="row gx-4 gx-lg-5  my-2">
     <div class="col-lg-7">
+      <button class="btn btn-primary mx-2"  (click)="handleClick('terrain1')"> Terrain Football</button>
+      <button class="btn btn-success mx-2" (click)="handleClick('terrain2')"> Terrain VoleyBall</button>
 
-      <h1 class="font-weight-light text-center">Matches Of Today</h1>
-      <div class="container-fluid d-flex flex-wrap justify-content-sm-center gap-2">
-        <div class="card">
-          <div class="card-header">
-            Match de Football
-          </div>
-          <div class="card-body">
-            <div class="row">
-              <div class="col-4 text-center">
-                <img width="50px" src="https://lastfm.freetls.fastly.net/i/u/ar0/6e24f0e8ef2a4857a9c6368000915a72.jpg"
-                  alt="Barcelone" class="img-fluid">
-                <h5>Barcelone</h5>
-              </div>
-              <div class="col-4 text-center">
-                <h1>VS</h1>
-              </div>
-              <div class="col-4 text-center">
-                <img width="50px" src="https://lastfm.freetls.fastly.net/i/u/ar0/6e24f0e8ef2a4857a9c6368000915a72.jpg"
-                  alt="Real Madrid" class="img-fluid">
-                <h5>Real Madrid</h5>
-              </div>
-            </div>
-            <p class="card-text mt-4">Date du match: 01 janvier 2024</p>
-            <p class="card-text">Stade: Camp Nou, Barcelone</p>
-            <!-- Ajoutez ici d'autres détails que vous souhaitez afficher -->
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-header">
-            Match de Football
-          </div>
-          <div class="card-body">
-            <div class="row">
-              <div class="col-4 text-center">
-                <img width="50" src="https://lastfm.freetls.fastly.net/i/u/ar0/6e24f0e8ef2a4857a9c6368000915a72.jpg"
-                  alt="Barcelone" class="img-fluid">
-                <h5>Barcelone</h5>
-              </div>
-              <div class="col-4 text-center">
-                <h1>VS</h1>
-              </div>
-              <div class="col-4 text-center">
-                <img width="50" src="https://lastfm.freetls.fastly.net/i/u/ar0/6e24f0e8ef2a4857a9c6368000915a72.jpg"
-                  alt="Real Madrid" class="img-fluid">
-                <h5>Real Madrid</h5>
-              </div>
-            </div>
-            <p class="card-text mt-4">Date du match: 01 janvier 2024</p>
-            <p class="card-text">Stade: Camp Nou, Barcelone</p>
-            <!-- Ajoutez ici d'autres détails que vous souhaitez afficher -->
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-header">
-            Match de Football
-          </div>
-          <div class="card-body">
-            <div class="row">
-              <div class="col-4 text-center">
-                <img width="50" src="https://lastfm.freetls.fastly.net/i/u/ar0/6e24f0e8ef2a4857a9c6368000915a72.jpg"
-                  alt="Barcelone" class="img-fluid">
-                <h5>Barcelone</h5>
-              </div>
-              <div class="col-4 text-center">
-                <h1>VS</h1>
-              </div>
-              <div class="col-4 text-center">
-                <img width="50" src="https://lastfm.freetls.fastly.net/i/u/ar0/6e24f0e8ef2a4857a9c6368000915a72.jpg"
-                  alt="Real Madrid" class="img-fluid">
-                <h5>Real Madrid</h5>
-              </div>
-            </div>
-            <p class="card-text mt-4">Date du match: 01 janvier 2024</p>
-            <p class="card-text">Stade: Camp Nou, Barcelone</p>
-            <!-- Ajoutez ici d'autres détails que vous souhaitez afficher -->
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-header">
-            Match de Football
-          </div>
-          <div class="card-body">
-            <div class="row">
-              <div class="col-4 text-center">
-                <img width="50" src="https://lastfm.freetls.fastly.net/i/u/ar0/6e24f0e8ef2a4857a9c6368000915a72.jpg"
-                  alt="Barcelone" class="img-fluid">
-                <h5>Barcelone</h5>
-              </div>
-              <div class="col-4 text-center">
-                <h1>VS</h1>
-              </div>
-              <div class="col-4 text-center">
-                <img width="50" src="https://lastfm.freetls.fastly.net/i/u/ar0/6e24f0e8ef2a4857a9c6368000915a72.jpg"
-                  alt="Real Madrid" class="img-fluid">
-                <h5>Real Madrid</h5>
-              </div>
-            </div>
-            <p class="card-text mt-4">Date du match: 01 janvier 2024</p>
-            <p class="card-text">Stade: Camp Nou, Barcelone</p>
-            <!-- Ajoutez ici d'autres détails que vous souhaitez afficher -->
-          </div>
-        </div>
-
-
-
-
-      </div>
+      <app-match-today  [matchoftoday]="matchtodaydata"  ></app-match-today>
 
 
 
@@ -150,7 +44,7 @@
         <div class="card-body"><p class="text-white m-0">This call to action card is a great place to showcase some important information or display a clever tagline!</p></div>
     </div> -->
   <!-- Content Row-->
-  <div class="row gx-4 gx-lg-5 d-flex justify-content-center">
+  <div class="row gx-4 gx-lg-5 d-flex mt-5 justify-content-center">
     <div class="col-md-4 mb-5">
       <div class="card h-100">
         <div class="card-body text-center">

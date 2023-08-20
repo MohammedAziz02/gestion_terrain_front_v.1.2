@@ -7,6 +7,8 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, delay, of, switchMap } from 'rxjs';
 import { GetDatesAboutReservation } from '../models/GetDatesAboutReservation';
 import { DeleteReservationDto } from '../models/DeleteReservationDto';
+import { UserReservationDate } from '../models/UserReservationDate';
+import { MatchOfToday } from '../models/matchOfToday';
 
 @Injectable({
   providedIn: 'root'
@@ -15,27 +17,41 @@ export class ReservationService extends BaseService {
 
   constructor(private httpclient: HttpClient) {
     super();
-   }
+  }
 
-   addReservation(reservation: ReservationDto){
-      this.isLoading = true;
-      return this.httpclient.post<ReservationDto>(URL_API + 'v1/api/reservation/', reservation,httpOptionsJson);
-   }
-
-   getAllreservationsOfothersUsers  (details : GetDatesAboutReservation){
+  addReservation(reservation: ReservationDto) {
     this.isLoading = true;
-    return this.httpclient.post<Date[]>(URL_API + 'v1/api/reservation/reservationofnocurrentuser', details,httpOptionsJson);
-   }
+    return this.httpclient.post<ReservationDto>(URL_API + 'v1/api/reservation/', reservation, httpOptionsJson);
+  }
 
-  getAllreservationOfCurrentUser(details : GetDatesAboutReservation){
+  getAllreservationsOfothersUsers(details: GetDatesAboutReservation) {
     this.isLoading = true;
-    return this.httpclient.post<Date[]>(URL_API + 'v1/api/reservation/reservationofcurrentuser', details,httpOptionsJson);
-   }
+    return this.httpclient.post<Date[]>(URL_API + 'v1/api/reservation/reservationofnocurrentuser', details, httpOptionsJson);
+  }
 
-   deleteReservation(deleteReservationDto : DeleteReservationDto){
+  getAllreservationOfCurrentUser(details: GetDatesAboutReservation) {
     this.isLoading = true;
-    return this.httpclient.post<Number>(URL_API + 'v1/api/reservation/deletereservation', deleteReservationDto,httpOptionsJson);
-   }
+    return this.httpclient.post<Date[]>(URL_API + 'v1/api/reservation/reservationofcurrentuser', details, httpOptionsJson);
+  }
 
+  deleteReservation(deleteReservationDto: DeleteReservationDto) {
+    this.isLoading = true;
+    return this.httpclient.post<Number>(URL_API + 'v1/api/reservation/deletereservation', deleteReservationDto, httpOptionsJson);
+  }
+
+  isUserReservatebetween2dates(request: UserReservationDate) {
+    this.isLoading = true;
+    return this.httpclient.post<number>(URL_API + 'v1/api/reservation/reservationLoggedUserfortoday', request, httpOptionsJson);
+  }
+
+  getMatchesofToday(request: MatchOfToday) {
+    this.isLoading = true;
+    return this.httpclient.post<any>(URL_API + 'v1/api/reservation/matchesoftoday', request, httpOptionsJson);
+  }
 
 }
+
+
+
+
+

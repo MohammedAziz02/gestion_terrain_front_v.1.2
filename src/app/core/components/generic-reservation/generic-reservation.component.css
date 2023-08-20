@@ -17,6 +17,10 @@
   }
   
 
+  .click{
+    cursor: pointer;
+  }
+
   
   .terrain {
     cursor: pointer;

@@ -1,0 +1,136 @@
+<!-- <h1 class="font-weight-light text-center">Matches Of Today </h1>
+      <div class="container-fluid d-flex flex-wrap justify-content-sm-center gap-2">
+        <div class="card">
+          <div class="card-header">
+            Match de Football
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-4 text-center">
+                <img width="50px" src="https://lastfm.freetls.fastly.net/i/u/ar0/6e24f0e8ef2a4857a9c6368000915a72.jpg"
+                  alt="Barcelone" class="img-fluid">
+                <h5>Barcelone</h5>
+              </div>
+              <div class="col-4 text-center">
+                <h1>VS</h1>
+              </div>
+              <div class="col-4 text-center">
+                <img width="50px" src="https://lastfm.freetls.fastly.net/i/u/ar0/6e24f0e8ef2a4857a9c6368000915a72.jpg"
+                  alt="Real Madrid" class="img-fluid">
+                <h5>Real Madrid</h5>
+              </div>
+            </div>
+            <p class="card-text mt-4">Date du match: 01 janvier 2024</p>
+            <p class="card-text">Stade: Camp Nou, Barcelone</p>
+          
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header">
+            Match de Football
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-4 text-center">
+                <img width="50" src="https://lastfm.freetls.fastly.net/i/u/ar0/6e24f0e8ef2a4857a9c6368000915a72.jpg"
+                  alt="Barcelone" class="img-fluid">
+                <h5>Barcelone</h5>
+              </div>
+              <div class="col-4 text-center">
+                <h1>VS</h1>
+              </div>
+              <div class="col-4 text-center">
+                <img width="50" src="https://lastfm.freetls.fastly.net/i/u/ar0/6e24f0e8ef2a4857a9c6368000915a72.jpg"
+                  alt="Real Madrid" class="img-fluid">
+                <h5>Real Madrid</h5>
+              </div>
+            </div>
+            <p class="card-text mt-4">Date du match: 01 janvier 2024</p>
+            <p class="card-text">Stade: Camp Nou, Barcelone</p>
+            
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header">
+            Match de Football
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-4 text-center">
+                <img width="50" src="https://lastfm.freetls.fastly.net/i/u/ar0/6e24f0e8ef2a4857a9c6368000915a72.jpg"
+                  alt="Barcelone" class="img-fluid">
+                <h5>Barcelone</h5>
+              </div>
+              <div class="col-4 text-center">
+                <h1>VS</h1>
+              </div>
+              <div class="col-4 text-center">
+                <img width="50" src="https://lastfm.freetls.fastly.net/i/u/ar0/6e24f0e8ef2a4857a9c6368000915a72.jpg"
+                  alt="Real Madrid" class="img-fluid">
+                <h5>Real Madrid</h5>
+              </div>
+            </div>
+            <p class="card-text mt-4">Date du match: 01 janvier 2024</p>
+            <p class="card-text">Stade: Camp Nou, Barcelone</p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header">
+            Match de Football
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-4 text-center">
+                <img width="50" src="https://lastfm.freetls.fastly.net/i/u/ar0/6e24f0e8ef2a4857a9c6368000915a72.jpg"
+                  alt="Barcelone" class="img-fluid">
+                <h5>Barcelone</h5>
+              </div>
+              <div class="col-4 text-center">
+                <h1>VS</h1>
+              </div>
+              <div class="col-4 text-center">
+                <img width="50" src="https://lastfm.freetls.fastly.net/i/u/ar0/6e24f0e8ef2a4857a9c6368000915a72.jpg"
+                  alt="Real Madrid" class="img-fluid">
+                <h5>Real Madrid</h5>
+              </div>
+            </div>
+            <p class="card-text mt-4">Date du match: 01 janvier 2024</p>
+            <p class="card-text">Stade: Camp Nou, Barcelone</p>
+        
+          </div>
+        </div>
+
+
+
+
+      </div> -->
+
+      <h1 class="font-weight-light text-center">Matches Of Today</h1>
+      <div *ngIf="!isnotempty()">
+        <div class="alert alert-danger text-center my-5">
+          <strong>No matches for Today</strong>
+        </div>
+      </div>
+<div class="container-fluid d-flex flex-wrap justify-content-sm-center gap-2">
+  <div class="card" *ngFor="let match of matchoftoday">
+    <div class="card-header">Match de Football</div>
+    <div class="card-body">
+      <div class="row">
+        <div class="col-4 text-center">
+          <img width="50px" [src]="'../../assets/images/' + match.user.picture" alt="{{ match.user.firstName }}" class="img-fluid">
+          <h5>{{ match.user.firstName }}</h5>
+        </div>
+        <div class="col-4 text-center">
+          <h1>VS</h1>
+        </div>
+        <div class="col-4 text-center">
+          <img width="50px" src="https://st3.depositphotos.com/3581215/18899/v/450/depositphotos_188994514-stock-illustration-vector-illustration-male-silhouette-profile.jpg" alt="{{ match.user.firstName }}" class="img-fluid">
+          <h5>{{ match.user.firstName }}</h5>
+        </div>
+      </div>
+      <p class="card-text mt-4">Date du match: {{ formatDate(match.date_match)   }}</p>
+      <p class="card-text">Stade: {{ match.terrain.name }}</p>
+      <!-- Add other details as needed -->
+    </div>
+  </div>
+</div>

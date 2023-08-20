@@ -23,6 +23,7 @@ import { ReserveTerrainVolleyComponent } from './core/components/reserve-terrain
 import { ReservationService } from './core/services/reservation.service';
 import { TokenStorageService } from './core/services/token-storage.service';
 import { GenericReservationComponent } from './core/components/generic-reservation/generic-reservation.component';
+import { MatchTodayComponent } from './core/components/match-today/match-today.component';
 
 
 
@@ -40,7 +41,8 @@ import { GenericReservationComponent } from './core/components/generic-reservati
     EditPorfileComponent,
     ReserveTerrainFootComponent,
     ReserveTerrainVolleyComponent,
-    GenericReservationComponent
+    GenericReservationComponent,
+    MatchTodayComponent
   ],
   imports: [
     BrowserModule,
