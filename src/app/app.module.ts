@@ -25,6 +25,8 @@ import { TokenStorageService } from './core/services/token-storage.service';
 import { GenericReservationComponent } from './core/components/generic-reservation/generic-reservation.component';
 import { MatchTodayComponent } from './core/components/match-today/match-today.component';
 import { ResetPasswordComponent } from './core/components/accueil/reset-password/reset-password.component';
+import { VerifyTokenComponent } from './core/components/accueil/verify-token/verify-token.component';
+import { UpdatePasswordComponent } from './core/components/accueil/update-password/update-password.component';
 
 
 
@@ -47,6 +49,8 @@ import { ResetPasswordComponent } from './core/components/accueil/reset-password
     GenericReservationComponent,
     MatchTodayComponent,
     ResetPasswordComponent,
+    VerifyTokenComponent,
+    UpdatePasswordComponent,
 
   ],
   imports: [

@@ -13,7 +13,10 @@ import { ReserveTerrainFootComponent } from './core/components/reserve-terrain-f
 import { ReserveTerrainVolleyComponent } from './core/components/reserve-terrain-volley/reserve-terrain-volley.component';
 import { ReservationAdminComponent } from './core/components/reservation-admin/reservation-admin.component';
 import { ResetPasswordComponent } from './core/components/accueil/reset-password/reset-password.component';
+import { VerifyTokenComponent } from './core/components/accueil/verify-token/verify-token.component';
+import { UpdatePasswordComponent } from './core/components/accueil/update-password/update-password.component';
 // import { ResetPasswordComponent } from './core/components/accueil/reset-password/reset-password.component';
+import { TokenGuard } from './core/guards/TokenGuard';
 
 const routes: Routes = [
   { path: '', redirectTo: '/accueil/signup', pathMatch: 'full' },
@@ -24,6 +27,8 @@ const routes: Routes = [
       { path: 'signup', component: SignupComponent },
       { path: 'login', component: LoginComponent },
       { path: 'reset-password', component: ResetPasswordComponent },
+      {path: 'verify-token/:token', component: VerifyTokenComponent},
+      { path: 'update-password', component: UpdatePasswordComponent, canActivate: [TokenGuard]} // Utiliser le route guard ici}
     ]
   },
   {
