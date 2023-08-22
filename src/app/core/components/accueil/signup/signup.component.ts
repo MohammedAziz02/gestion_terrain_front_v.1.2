@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { Signup } from '../../models/Signup';
-import { AuthserviceService } from '../../services/authservice.service';
+import { Signup } from '../../../models/Signup';
+import { AuthserviceService } from '../../../services/authservice.service';
 import { Router } from '@angular/router';
-import { MessagesharedsinguploginService } from '../../shared/messagesharedsinguplogin.service';
+import { MessagesharedsinguploginService } from '../../../shared/messagesharedsinguplogin.service';
 import { NgControl, NgForm } from '@angular/forms';
 
 

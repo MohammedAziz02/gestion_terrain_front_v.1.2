@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { AuthserviceService } from '../../services/authservice.service';
+import { AuthserviceService } from '../../../services/authservice.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { MessagesharedsinguploginService } from '../../shared/messagesharedsinguplogin.service';
+import { MessagesharedsinguploginService } from '../../../shared/messagesharedsinguplogin.service';
 import { Location, NgFor } from '@angular/common';
-import { Login } from '../../models/login';
-import { TokenStorageService } from '../../services/token-storage.service';
+import { Login } from '../../../models/login';
+import { TokenStorageService } from '../../../services/token-storage.service';
 import { NgForm } from '@angular/forms';
 import { Subscription } from 'rxjs';
 

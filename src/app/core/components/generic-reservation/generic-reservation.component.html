@@ -1,6 +1,6 @@
 <div class="container">
   <!-- <button  (click)="handletest()">ok</button> -->
-  <span  class="click" (click)="jj()"><i class="fa-solid fa-angles-left mt-2 " style="color: #0d49af;"></i> Previous </span>
+  <span  class="click" (click)="goback()"><i class="fa-solid fa-angles-left mt-2 " style="color: #0d49af;"></i> Previous </span>
     <ul ngbNav #nav="ngbNav" class="nav-tabs">
       <li [ngbNavItem]="index" *ngFor="let day of dates; let index = index">
         <button ngbNavLink class="day-button">{{ day.day }}</button>

@@ -21,7 +21,7 @@ export class GenericReservationComponent {
   dates: { day: string; dates: Date[] }[] = [];
   // quand on click sur reserver cette variable stock la valeur de date correspond au button
   // selectedDate: Date;
-  // quand le modal pop up et on click sur un terrain cette variable va prendre la valeur de terrain soit terrain1 soit terrain2
+  // quand le modal pop up et on click sur un terrain cette variable va prendre la valeur de terrain soit terrain football soit terrain volleyball
   selectedTerrain: string = '';
   //Two dataoftemperature binding in the form : ce variable contient la valeur de je joue contre qui
   againstwho: string = '';
@@ -115,7 +115,7 @@ export class GenericReservationComponent {
     );
   }
 
-  jj(){
+  goback(){
     window.history.back();
   }
 

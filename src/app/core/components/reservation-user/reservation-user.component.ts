@@ -24,12 +24,12 @@ export class ReservationUserComponent {
 
 
   navigateToTerrainFoot() {
-    localStorage.setItem('selectedTerrain', 'terrain1');
+    localStorage.setItem('selectedTerrain', 'terrain football');
     this.router.navigate(['/home/terrainfootbal']);
   }
 
   navigateToTerrainVolley() {
-    localStorage.setItem('selectedTerrain', 'terrain2');
+    localStorage.setItem('selectedTerrain', 'terrain volleyball');
     this.router.navigate(['/home/terrainvolley']);
   }
 

@@ -8,6 +8,8 @@ import { DateHelper } from '../../utils/DateHelper';
 })
 export class MatchTodayComponent {
   @Input() matchoftoday: any;
+  
+  currentDate: Date = new Date();
 
   ngOnInit(): void {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
@@ -29,4 +31,6 @@ export class MatchTodayComponent {
     return DateHelper.formatDateRange(datematch);
   }
  
+
+  
 }

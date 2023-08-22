@@ -1,0 +1,8 @@
+.forgotpassword{
+    cursor: pointer;
+}
+.forgotpassword:hover{
+    text-decoration: underline;
+    
+  
+}

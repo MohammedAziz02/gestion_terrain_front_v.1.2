@@ -1,0 +1,28 @@
+.btn-sophisticated {
+    background-color: #0D6EFC;
+    border-color: #2935b9;
+    color: #ffffff;
+    border-radius: 20px;
+    padding: 12px 24px;
+    transition: transform 0.2s, background-color 0.3s;
+    /* display: flex; */
+    /* align-items: center; */
+  }
+  
+  .btn-sophisticated:hover {
+    background-color: #ffffff;
+    color: #2935b9;;
+    transform: scale(1.05);
+  }
+  
+  .btn-text {
+    margin-right: 10px;
+    font-weight: bold;
+  }
+  
+  .btn-sophisticated i {
+    margin-left: 8px;
+  }
+  
+  
+  

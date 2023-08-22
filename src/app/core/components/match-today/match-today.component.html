@@ -105,31 +105,44 @@
 
       </div> -->
 
-      <h1 class="font-weight-light text-center">Matches Of Today</h1>
-      <div *ngIf="!isnotempty()">
-        <div class="alert alert-danger text-center my-5">
-          <strong>No matches for Today</strong>
-        </div>
-      </div>
-<div class="container-fluid d-flex flex-wrap justify-content-sm-center gap-2">
-  <div class="card" *ngFor="let match of matchoftoday">
-    <div class="card-header">Match de Football</div>
+<!-- <h3 class="font-weight-bold text-center border-bottom border-2 border-danger">Matches Of Today {{ currentDate | date:'EEEE dd/MM/yyyy' }}</h3> -->
+<div class="text-center">
+  <h3 class="display-4 font-weight-bold mb-4 text-danger">
+    Today's Scheduled Matches <span class="h6 d-block mt-2">{{ currentDate | date:'EEEE, MMMM dd, yyyy' }}</span>
+  </h3>
+  <hr class="border-danger">
+
+</div>
+
+<div *ngIf="!isnotempty() ">
+  <div class="alert alert-danger text-center my-5">
+    <strong>No matches for Today</strong>
+  </div>
+</div>
+<div *ngIf="isnotempty()" class="container-fluid d-flex flex-wrap justify-content-sm-center gap-2 bg-primary p-3 shadow rounded-3">
+  <div class="card shadow " *ngFor="let match of matchoftoday">
+    <!-- <div class="card-header text-center fw-bolder "> {{ match.terrain.name }}</div> -->
+    <div class="card-header text-center fw-bolder  border-bottom border-primary border-3  "> {{
+      formatDate(match.date_match) }}</div>
     <div class="card-body">
       <div class="row">
-        <div class="col-4 text-center">
-          <img width="50px" [src]="'../../assets/images/' + match.user.picture" alt="{{ match.user.firstName }}" class="img-fluid">
-          <h5>{{ match.user.firstName }}</h5>
+        <div class="col-5 text-center ">
+          <img width="50px" height="50px" [src]="'../../assets/images/' + match.user.picture"
+            alt="{{ match.user.firstName }}" class="img-fluid">
+          <p class="text-break fs-6">{{ match.user.firstName }} {{ match.user.lastName }} </p>
         </div>
-        <div class="col-4 text-center">
+        <div class="col-2 text-center">
           <h1>VS</h1>
         </div>
-        <div class="col-4 text-center">
-          <img width="50px" src="https://st3.depositphotos.com/3581215/18899/v/450/depositphotos_188994514-stock-illustration-vector-illustration-male-silhouette-profile.jpg" alt="{{ match.user.firstName }}" class="img-fluid">
-          <h5>{{ match.user.firstName }}</h5>
+        <div class="col-5 text-center">
+          <img width="50px" height="50px"
+            src="https://st3.depositphotos.com/3581215/18899/v/450/depositphotos_188994514-stock-illustration-vector-illustration-male-silhouette-profile.jpg"
+            alt="{{ match.user.firstName }}" class="img-fluid">
+          <p class="text-break fs-6">{{ match.user.firstName }} {{ match.user.lastName }} </p>
         </div>
       </div>
-      <p class="card-text mt-4">Date du match: {{ formatDate(match.date_match)   }}</p>
-      <p class="card-text">Stade: {{ match.terrain.name }}</p>
+      <!-- <p class="card-text mt-4">Date du match: {{ formatDate(match.date_match)   }}</p> -->
+      <!-- <p class="card-text">Stade: {{ match.terrain.name }}</p> -->
       <!-- Add other details as needed -->
     </div>
   </div>

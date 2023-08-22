@@ -19,41 +19,47 @@
 
 
 <!-- Page Content-->
-<div class="container-fluid border border-2 border-danger px-4 px-lg-5">
+<div class="container-fluid  px-4 px-lg-5">
  
 
   <!-- Heading Row-->
-  <div class="row gx-4 gx-lg-5  my-2">
-    <div class="col-lg-7">
-      <button class="btn btn-primary mx-2"  (click)="handleClick('terrain1')"> Terrain Football</button>
-      <button class="btn btn-success mx-2" (click)="handleClick('terrain2')"> Terrain VoleyBall</button>
-
-      <app-match-today  [matchoftoday]="matchtodaydata"  ></app-match-today>
-
-
-
-
-
+  <div class="row gx-4 gx-lg-5 my-2">
+    <div class="col-xxl-7">
+      <div class="d-flex flex-sm-row gap-2 flex-column">
+      <button class="btn btn-sophisticated mx-2" (click)="handleClick('terrain football')">
+        <span class="btn-text">Terrain Football</span>
+        <i class="fa-regular fa-futbol"></i>
+      </button>
+      <button class="btn btn-sophisticated mx-2" (click)="handleClick('terrain volleyball')">
+        <span class="btn-text">Terrain Volleyball</span>
+        <i class="fa-solid fa-volleyball"></i>
+      </button>
     </div>
-    <div class="col-lg-5">
+  
+      <app-match-today [matchoftoday]="matchtodaydata"></app-match-today>
+    </div>
+    <div class="col-xxl-5 mt-5">
       <router-outlet></router-outlet>
     </div>
   </div>
+  
+  
+  
   <!-- Call to Action-->
   <!-- <div class="card text-white bg-secondary my-5 py-4 text-center">
         <div class="card-body"><p class="text-white m-0">This call to action card is a great place to showcase some important information or display a clever tagline!</p></div>
     </div> -->
   <!-- Content Row-->
-  <div class="row gx-4 gx-lg-5 d-flex mt-5 justify-content-center">
-    <div class="col-md-4 mb-5">
+  <div class="row gx-4 gx-lg-5 mt-5 d-flex justify-content-center ">
+    <div class="col-12 col-md-4 mb-5">
       <div class="card h-100">
         <div class="card-body text-center">
-          <h2 class="card-title">ENSAH</h2>
-          <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem magni quas ex numquam,
-            maxime minus quam molestias corporis quod, ea minima accusamus.</p>
+          <!-- <h2 class="card-title">ENSAH</h2> -->
           <div class="d-flex justify-content-center">
             <img src="../assets/images/logo-ensah.png" width="100" />
           </div>
+          <p class="card-text">The National School of Applied Sciences of Al-Hoceima (ENSAH) is a public institution of higher education under the University Abdelmalek Essaadi. Its establishment aims to promote the training of highly qualified state engineers in the most dynamic and potentially rapidly evolving specialties within the regional and national socio-economic framework.</p>
+          
         </div>
         <div class="card-footer"><a class="btn btn-primary w-100" href="https://www.ensah.ma">More Info</a></div>
       </div>

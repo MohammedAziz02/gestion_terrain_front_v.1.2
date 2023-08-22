@@ -18,13 +18,14 @@ export class AccueilComponent {
 
   isCollapsed =true;
 
+
   constructor(private tokenStorageService: TokenStorageService, private router : Router,private reservationService : ReservationService,private sweatAlertServiceService : SweatAlertServiceService) {
     console.log("accueil is rendered constructor");
   }
 
   ngOnInit(){
     console.log("accueil is rendered ngOnInit");
-    this.matchtodaydata=this.getMatchOfToday("terrain1");
+    this.matchtodaydata=this.getMatchOfToday("terrain football");
   }
 
 
@@ -55,13 +56,6 @@ export class AccueilComponent {
 
     if(!this.tokenStorageService.isAutheticated()){
       console.log("user is not authenticated");
-      // this.messageErrornotAuthentificated=true;
-      // Swal.fire({
-      //   icon: 'error',
-      //   title: 'Oops...',
-      //   text: "You're not authenticated please register first!",
-        
-      // })
       this.sweatAlertServiceService.showError("You're not authenticated please register first!");
       return;
     }else{

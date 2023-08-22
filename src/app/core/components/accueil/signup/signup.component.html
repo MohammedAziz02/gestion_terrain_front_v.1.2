@@ -12,43 +12,50 @@
     <div>
         <h3 class="text-center">SIGNUP <i class="bi bi-box-arrow-in-right"></i></h3>
     </div>
-    <div class="form-group">
+    <div class="form-group d-sm-flex gap-2">
+       <div class="col-sm-6">
         <label for="firstname">First Name</label>
         <input type="text" class="form-control" id="firstname" name="firstname" [(ngModel)]="signuprequest.firstName"
             #firstname="ngModel" [ngClass]="{ 'is-invalid': firstname.touched && firstname.invalid }" required />
         <div class="invalid-feedback" *ngIf="firstname.touched && firstname.invalid">
             <p *ngIf="firstname.invalid">FirstName is required</p>
         </div>
-    </div>
-    <div class="form-group">
+       </div>
+       <div class="col-sm-6">
         <label for="lastname">Last Name</label>
         <input type="text" class="form-control" id="lastname" name="lastname" [(ngModel)]="signuprequest.lastName"
             #lastname="ngModel" [ngClass]="{ 'is-invalid': lastname.touched && lastname.invalid }" required>
         <div class="invalid-feedback" *ngIf="lastname.touched && lastname.invalid">
             <p *ngIf="lastname.invalid">lastname is required</p>
         </div>
+       </div>
     </div>
-    <div class="form-group">
-        <label for="mobilephone">Mobile phone</label>
-        <input type="text" class="form-control" id="mobilephone" name="phonenumber"
-            [(ngModel)]="signuprequest.phonenumber" #phonenumber="ngModel"
-            [ngClass]="{ 'is-invalid': phonenumber.touched && phonenumber.invalid }" required>
-        <div class="invalid-feedback" *ngIf="phonenumber.touched && phonenumber.invalid">
-            <p *ngIf="phonenumber.invalid">phonenumber is required</p>
+   
+    <div class="form-group d-sm-flex gap-2">
+        <div class="col-sm-6">
+            <label for="mobilephone">Mobile phone</label>
+            <input type="text" class="form-control" id="mobilephone" name="phonenumber"
+                [(ngModel)]="signuprequest.phonenumber" #phonenumber="ngModel"
+                [ngClass]="{ 'is-invalid': phonenumber.touched && phonenumber.invalid }" required>
+            <div class="invalid-feedback" *ngIf="phonenumber.touched && phonenumber.invalid">
+                <p *ngIf="phonenumber.invalid">phonenumber is required</p>
+            </div>
         </div>
-    </div>
-    <div class="form-group">
-        <label for="normalemail">normal email</label>
-        <input type="text" class="form-control" id="normalemail" name="normalemail"
-            [(ngModel)]="signuprequest.normalemail" #normalemail="ngModel"
-            [ngClass]="{ 'is-invalid': normalemail.touched && normalemail.invalid }"
-            pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" required>
-
-        <div class="invalid-feedback" *ngIf="normalemail.touched && normalemail.invalid">
-            <p *ngIf="normalemail.errors?.['required']">normalemail is required</p>
-            <p *ngIf="normalemail.errors?.['pattern']">normalemail should be like AAAA@xxx.xx</p>
+        <div class="col-sm-6">
+            <label for="normalemail">normal email</label>
+            <input type="text" class="form-control" id="normalemail" name="normalemail"
+                [(ngModel)]="signuprequest.normalemail" #normalemail="ngModel"
+                [ngClass]="{ 'is-invalid': normalemail.touched && normalemail.invalid }"
+                pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" required>
+    
+            <div class="invalid-feedback" *ngIf="normalemail.touched && normalemail.invalid">
+                <p *ngIf="normalemail.errors?.['required']">normalemail is required</p>
+                <p *ngIf="normalemail.errors?.['pattern']">normalemail should be like AAAA@xxx.xx</p>
+            </div>
         </div>
+       
     </div>
+   
     <div class="form-group">
         <label for="academicemail">Academic email</label>
         <input type="text" class="form-control" id="academicemail" name="academicemail"
@@ -85,7 +92,8 @@
     </div>
 
 
-    <div class="form-group">
+    <div class="form-group d-sm-flex gap-2">
+        <div class="col-sm-6">
         <label for="role">Role</label>
         <select [ngClass]="{ 'is-invalid': role.touched && role.invalid }" class="form-control" id="role" name="role"
             [(ngModel)]="signuprequest.role" #role="ngModel" required>
@@ -95,41 +103,44 @@
         <div class="invalid-feedback" *ngIf="role.touched && role.invalid">
             <p *ngIf="role.invalid">Role is required</p>
         </div>
-    </div>
-
-    <div class="form-group">
-        <label for="grade">grade</label>
-        <select [ngClass]="{ 'is-invalid': grade.touched && grade.invalid }" class="form-control" id="grade"
-            name="grade" [(ngModel)]="signuprequest.grade" #grade="ngModel" required>
-            <option value="CP1">CP1</option>
-            <option value="CP2">CP2</option>
-            <option value="GI1">GI1</option>
-            <option value="GI2">GI2</option>
-            <option value="GI3">GI3</option>
-            <option value="GC1">GC1</option>
-            <option value="GC2">GC2</option>
-            <option value="GC3">GC3</option>
-            <option value="GEE1">GEE1</option>
-            <option value="GEE2">GEE2</option>
-            <option value="GEE3">GEE3</option>
-            <option value="GEER1">GEER1</option>
-            <option value="GEER2">GEER2</option>
-            <option value="GEER3">GEER3</option>
-            <option value="GM1">GM1</option>
-            <option value="GM2">GM2</option>
-            <option value="GM3">GM3</option>
-            <option value="ID1">ID1</option>
-            <option value="ID2">ID2</option>
-            <option value="ID3">ID3</option>
-        </select>
-        <div class="invalid-feedback" *ngIf="grade.touched && grade.invalid">
-            <p *ngIf="grade.invalid">grade is required</p>
+        </div>
+        <div class="col-sm-6">
+            <label for="grade">grade</label>
+            <select [ngClass]="{ 'is-invalid': grade.touched && grade.invalid }" class="form-control" id="grade"
+                name="grade" [(ngModel)]="signuprequest.grade" #grade="ngModel" required>
+                <option value="CP1">CP1</option>
+                <option value="CP2">CP2</option>
+                <option value="GI1">GI1</option>
+                <option value="GI2">GI2</option>
+                <option value="GI3">GI3</option>
+                <option value="GC1">GC1</option>
+                <option value="GC2">GC2</option>
+                <option value="GC3">GC3</option>
+                <option value="GEE1">GEE1</option>
+                <option value="GEE2">GEE2</option>
+                <option value="GEE3">GEE3</option>
+                <option value="GEER1">GEER1</option>
+                <option value="GEER2">GEER2</option>
+                <option value="GEER3">GEER3</option>
+                <option value="GM1">GM1</option>
+                <option value="GM2">GM2</option>
+                <option value="GM3">GM3</option>
+                <option value="ID1">ID1</option>
+                <option value="ID2">ID2</option>
+                <option value="ID3">ID3</option>
+            </select>
+            <div class="invalid-feedback" *ngIf="grade.touched && grade.invalid">
+                <p *ngIf="grade.invalid">grade is required</p>
+            </div>
         </div>
     </div>
 
+   
 
 
-    <div class="form-group">
+
+    <div class="form-group d-sm-flex gap-2">
+        <div class="col-sm-6">
         <label for="password">Password</label>
         <input type="password" class="form-control" id="password" name="password" [(ngModel)]="signuprequest.password"
             #password="ngModel" [ngClass]="{ 'is-invalid': password.touched && password.invalid }" required>
@@ -137,8 +148,7 @@
             <p *ngIf="password.invalid">password is required</p>
         </div>
     </div>
-
-    <div class="form-group">
+    <div class="col-sm-6">
         <label for="passwordconfirm">Confirm Password</label>
         <input type="password" class="form-control" id="passwordconfirm" name="passwordconfirm"
             [(ngModel)]="signuprequest.confirmPassword" #passwordconfirm="ngModel"
@@ -148,6 +158,8 @@
             <p *ngIf="passwordconfirm.value !== signuprequest.password">Passwords do not match</p>
         </div>
     </div>
+    </div>
+
 
 
     <div class="d-flex justify-content-between ">

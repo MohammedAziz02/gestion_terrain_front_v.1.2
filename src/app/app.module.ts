@@ -4,8 +4,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { SignupComponent } from './core/components/signup/signup.component';
-import { LoginComponent } from './core/components/login/login.component';
+import { SignupComponent } from './core/components/accueil/signup/signup.component';
+import { LoginComponent } from './core/components/accueil/login/login.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { PagenotfoundComponent } from './core/components/pagenotfound/pagenotfound.component';
@@ -24,6 +24,9 @@ import { ReservationService } from './core/services/reservation.service';
 import { TokenStorageService } from './core/services/token-storage.service';
 import { GenericReservationComponent } from './core/components/generic-reservation/generic-reservation.component';
 import { MatchTodayComponent } from './core/components/match-today/match-today.component';
+import { ResetPasswordComponent } from './core/components/accueil/reset-password/reset-password.component';
+
+
 
 
 
@@ -42,7 +45,9 @@ import { MatchTodayComponent } from './core/components/match-today/match-today.c
     ReserveTerrainFootComponent,
     ReserveTerrainVolleyComponent,
     GenericReservationComponent,
-    MatchTodayComponent
+    MatchTodayComponent,
+    ResetPasswordComponent,
+
   ],
   imports: [
     BrowserModule,

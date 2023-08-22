@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { SignupComponent } from './core/components/signup/signup.component';
-import { LoginComponent } from './core/components/login/login.component';
+import { SignupComponent } from './core/components/accueil/signup/signup.component';
+import { LoginComponent } from './core/components/accueil/login/login.component';
 import { PagenotfoundComponent } from './core/components/pagenotfound/pagenotfound.component';
 import { HomeComponent } from './core/components/home/home.component';
 import { AccueilComponent } from './core/components/accueil/accueil.component';
@@ -12,6 +12,8 @@ import { EditPorfileComponent } from './core/components/edit-porfile/edit-porfil
 import { ReserveTerrainFootComponent } from './core/components/reserve-terrain-foot/reserve-terrain-foot.component';
 import { ReserveTerrainVolleyComponent } from './core/components/reserve-terrain-volley/reserve-terrain-volley.component';
 import { ReservationAdminComponent } from './core/components/reservation-admin/reservation-admin.component';
+import { ResetPasswordComponent } from './core/components/accueil/reset-password/reset-password.component';
+// import { ResetPasswordComponent } from './core/components/accueil/reset-password/reset-password.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/accueil/signup', pathMatch: 'full' },
@@ -21,6 +23,7 @@ const routes: Routes = [
       { path: '', redirectTo: 'signup', pathMatch: 'full' },
       { path: 'signup', component: SignupComponent },
       { path: 'login', component: LoginComponent },
+      { path: 'reset-password', component: ResetPasswordComponent },
     ]
   },
   {
