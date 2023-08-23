@@ -23,4 +23,9 @@ export class UserService extends BaseService {
     this.isLoading = true;
     return this.http.post(URL_API + "v1/api/user/verify-token", token,httpOptionsJson);
   }
+
+  changePassword(passwordResetDto: any) {
+    this.isLoading = true;
+    return this.http.post(URL_API + "v1/api/user/change-password", passwordResetDto,httpOptionsJson);
+  }
 }

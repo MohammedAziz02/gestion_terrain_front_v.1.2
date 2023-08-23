@@ -28,7 +28,9 @@ const routes: Routes = [
       { path: 'login', component: LoginComponent },
       { path: 'reset-password', component: ResetPasswordComponent },
       {path: 'verify-token/:token', component: VerifyTokenComponent},
-      { path: 'update-password', component: UpdatePasswordComponent, canActivate: [TokenGuard]} // Utiliser le route guard ici}
+      { path: 'update-password', component: UpdatePasswordComponent
+      // , canActivate: [TokenGuard]
+    } // Utiliser le route guard ici}
     ]
   },
   {

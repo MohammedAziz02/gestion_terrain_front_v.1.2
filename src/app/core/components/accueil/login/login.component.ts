@@ -20,9 +20,10 @@ export class LoginComponent {
   errormessage: String = "";
   loginRequest: Login = new Login("", "");
   role: string = "";
+  confirmationMessage: string = "";
 
 
-  constructor(protected authService: AuthserviceService, private messagesharedsinguploginService: MessagesharedsinguploginService, private tokenStorage: TokenStorageService, private router: Router) {
+  constructor(protected authService: AuthserviceService, private messagesharedsinguploginService: MessagesharedsinguploginService, private tokenStorage: TokenStorageService, private router: Router,private route: ActivatedRoute) {
     console.log("login is rendered constructor");
    }
 
@@ -32,6 +33,12 @@ export class LoginComponent {
     if (this.tokenStorage.getToken()) {
        this.role = this.tokenStorage.getUser().role;
     }
+
+    this.route.queryParams.subscribe(params => {
+      if (params['message']) {
+        this.confirmationMessage = params['message'];
+      }
+    });
   }
 
   onSubmit(form: NgForm): void {

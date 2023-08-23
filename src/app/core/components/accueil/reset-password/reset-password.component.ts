@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { BaseComponent } from 'src/app/core/helpers/BaseComponent';
 import { UserService } from 'src/app/core/services/user.service';
 
 @Component({
@@ -7,9 +8,11 @@ import { UserService } from 'src/app/core/services/user.service';
   templateUrl: './reset-password.component.html',
   styleUrls: ['./reset-password.component.css']
 })
-export class ResetPasswordComponent {
+export class ResetPasswordComponent extends BaseComponent {
 
-  constructor(public userService : UserService) { }
+  constructor(public userService : UserService) {
+    super();
+   }
 
   messageerror : string = "";
   messagesuccess : string = "";
@@ -31,8 +34,8 @@ export class ResetPasswordComponent {
     )
   }
 
-  goback(){
-    window.history.back();
-  }
+  // goback(){
+  //   window.history.back();
+  // }
 
 }

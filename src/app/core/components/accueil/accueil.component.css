@@ -3,7 +3,7 @@
     border-color: #2935b9;
     color: #ffffff;
     border-radius: 20px;
-    padding: 12px 24px;
+    /* padding: px 24px; */
     transition: transform 0.2s, background-color 0.3s;
     /* display: flex; */
     /* align-items: center; */
@@ -23,6 +23,27 @@
   .btn-sophisticated i {
     margin-left: 8px;
   }
+
+
+  .border-sophisticated {
+    position: relative;
+    padding-right: 20px; /* Espace pour l'élément décoratif */
+}
+
+.border-sophisticated::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 0.1px;
+    background-color: #f5c8cb; /* Couleur de bordure sophistiquée */
+    transform: translateX(50%);
+    
+}
+
+
+
   
   
   
