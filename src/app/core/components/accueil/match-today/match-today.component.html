@@ -1,0 +1,54 @@
+<div class="text-center mt-3">
+  <h3 class="font-weight-bold mb-4 text-primary">
+    Today's Scheduled Matches <span class="h6 d-block mt-2">{{ currentDate | date:'EEEE, MMMM dd, yyyy' }}</span>
+  </h3>
+  <hr class="border-primary">
+
+</div>
+
+
+<div class="d-flex flex-sm-row gap-2 flex-column">
+  <button class="btn btn-outline-primary mx-2 my-2 " (click)="handleClick('terrain football')">
+    <span class="btn-text mx-2">Terrain Football</span>
+      <i class="fa-regular fa-futbol"></i>
+  </button>
+  <button class="btn btn-outline-primary mx-2 my-2 " (click)="handleClick('terrain volleyball')">
+    <span class="btn-text mx-2">Terrain Volleyball</span>
+      <i class="fa-solid fa-volleyball"></i>
+  </button>
+</div>
+
+<div *ngIf="!isnotempty() ">
+  <div class="alert alert-danger text-center my-5">
+    <strong>No matches for Today</strong>
+  </div>
+</div>
+
+
+<ngb-carousel #carousel [interval]="2000" (slide)="onSlide($event)" *ngIf="isnotempty()"
+  class="container-fluid d-flex flex-wrap justify-content-sm-center gap-2 bg-primary p-3 shadow rounded-3 mb-5 ">
+  <ng-template ngbSlide class="card shadow " *ngFor="let match of matchtodaydata; index as i">
+
+    <div class="card-header text-center fw-bolder  border-bottom border-primary border-3  text-light"> {{
+      formatDate(match.date_match) }}</div>
+    <div class="card-body">
+      <div class="row">
+        <div class="col-5 text-center ">
+          <img width="75px" height="75px" [src]="'../../assets/images/' + match.user.picture"
+            alt="{{ match.user.firstName }}" class="img-fluid">
+          <p class="text-break fs-5 text-light fw-bold">{{ match.user.firstName }} {{ match.user.lastName }} </p>
+        </div>
+        <div class="col-2 text-center">
+          <h1 class="text-light">VS</h1>
+        </div>
+        <div class="col-5 text-center">
+          <img width="75px" height="75px"
+            src="https://st3.depositphotos.com/3581215/18899/v/450/depositphotos_188994514-stock-illustration-vector-illustration-male-silhouette-profile.jpg"
+            alt="{{ match.user.firstName }}" class="img-fluid">
+          <p class="text-break fs-5 fw-bold text-light">{{ match.user.firstName }} {{ match.user.lastName }} </p>
+        </div>
+      </div>
+
+    </div>
+  </ng-template>
+</ngb-carousel>

@@ -17,22 +17,27 @@ import { VerifyTokenComponent } from './core/components/accueil/verify-token/ver
 import { UpdatePasswordComponent } from './core/components/accueil/update-password/update-password.component';
 // import { ResetPasswordComponent } from './core/components/accueil/reset-password/reset-password.component';
 import { TokenGuard } from './core/guards/TokenGuard';
+import { MatchOfToday } from './core/models/matchOfToday';
+import { MatchTodayComponent } from './core/components/accueil/match-today/match-today.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/accueil/signup', pathMatch: 'full' },
-  {
-    path: 'accueil', component: AccueilComponent,
+  // { path: 'signup', component: SignupComponent, title: "Accueil - Signup " },
+  // { path: 'login', component: LoginComponent, title: "Accueil - Loginn " },
+  // { path: 'reset-password', component: ResetPasswordComponent, title: "Accueil - Reset password " },
+  // { path: 'verify-token/:token', component: VerifyTokenComponent, title: "Accueil - Verify token  " },
+  // {path: 'update-password', component: UpdatePasswordComponent, title: "Accueil - Update password "},
+  // { path: 'match-today', component: MatchTodayComponent, title: "Home - match of today "},
+  { path: '', redirectTo: '/accueil', pathMatch: 'full' },
+  { path: 'accueil', component: AccueilComponent, title: "Accueil - Accueil " ,
     children: [
-      { path: '', redirectTo: 'signup', pathMatch: 'full' },
-      { path: 'signup', component: SignupComponent , title: "Accueil - Signup "},
-      { path: 'login', component: LoginComponent,title: "Accueil - Loginn " },
-      { path: 'reset-password', component: ResetPasswordComponent ,title: "Accueil - Reset password " },
-      {path: 'verify-token/:token', component: VerifyTokenComponent , title: "Accueil - Verify token  "},
-      { path: 'update-password', component: UpdatePasswordComponent , title: "Accueil - Update password "
-      // , canActivate: [TokenGuard]
-    } // Utiliser le route guard ici}
-    ]
-  },
+      { path: '', redirectTo: 'match-today', pathMatch: 'full' },
+      { path: 'login', component: LoginComponent, title: "Accueil - Login " },
+      { path: 'signup', component: SignupComponent, title: "Accueil - Signup " },
+      { path: 'reset-password', component: ResetPasswordComponent, title: "Accueil - Reset password " },
+      { path: 'verify-token/:token', component: VerifyTokenComponent, title: "Accueil - Verify token  " },
+      {path: 'update-password', component: UpdatePasswordComponent, title: "Accueil - Update password "},
+      { path: 'match-today', component: MatchTodayComponent, title: "Home - match of today "}
+    ]},
   {
     path: "home", component: HomeComponent, canActivate: [AuthGuard],
     children: [
@@ -40,13 +45,13 @@ const routes: Routes = [
       {
         path: 'reserve', component: ReservationUserComponent, canActivate: [AuthGuard], title: "Home - Reservation menu"
         // children: [
-          // { path: '', redirectTo: 'terrainfootbal', pathMatch: 'full' },
-          // { path: 'terrainfootbal', component: ReserveTerrainFootComponent, canActivate: [AuthGuard] },
+        // { path: '', redirectTo: 'terrainfootbal', pathMatch: 'full' },
+        // { path: 'terrainfootbal', component: ReserveTerrainFootComponent, canActivate: [AuthGuard] },
         // ]
       },
-      { path: 'terrainfootbal', component: ReserveTerrainFootComponent, canActivate: [AuthGuard] , title: "Home - Reservation footbal"},
-      { path: 'terrainvolley', component: ReserveTerrainVolleyComponent, canActivate: [AuthGuard] , title: "Home - Reservation volley" },
-      { path: 'reserveradmin', component: ReservationAdminComponent, canActivate: [AuthGuard] , title: "Home - admininstration" },
+      { path: 'terrainfootbal', component: ReserveTerrainFootComponent, canActivate: [AuthGuard], title: "Home - Reservation footbal" },
+      { path: 'terrainvolley', component: ReserveTerrainVolleyComponent, canActivate: [AuthGuard], title: "Home - Reservation volley" },
+      { path: 'reserveradmin', component: ReservationAdminComponent, canActivate: [AuthGuard], title: "Home - admininstration" },
       { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard], title: "Home - Profile" },
       { path: 'editprofile', component: EditPorfileComponent, canActivate: [AuthGuard], title: "Home - Edit profile" },
     ]

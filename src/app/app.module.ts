@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbCarouselModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SignupComponent } from './core/components/accueil/signup/signup.component';
 import { LoginComponent } from './core/components/accueil/login/login.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -23,7 +23,7 @@ import { ReserveTerrainVolleyComponent } from './core/components/reserve-terrain
 import { ReservationService } from './core/services/reservation.service';
 import { TokenStorageService } from './core/services/token-storage.service';
 import { GenericReservationComponent } from './core/components/generic-reservation/generic-reservation.component';
-import { MatchTodayComponent } from './core/components/match-today/match-today.component';
+import { MatchTodayComponent } from './core/components/accueil/match-today/match-today.component';
 import { ResetPasswordComponent } from './core/components/accueil/reset-password/reset-password.component';
 import { VerifyTokenComponent } from './core/components/accueil/verify-token/verify-token.component';
 import { UpdatePasswordComponent } from './core/components/accueil/update-password/update-password.component';
@@ -59,7 +59,8 @@ import { UpdatePasswordComponent } from './core/components/accueil/update-passwo
     NgbModule,
     HttpClientModule,
     FormsModule,
-    NgbDropdownModule
+    NgbDropdownModule,
+    NgbCarouselModule
 
 
   ],

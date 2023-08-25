@@ -37,20 +37,20 @@
     right: 0;
     height: 100%;
     width: 0.1px;
-    background-color: #f5c8cb; /* Couleur de bordure sophistiquée */
+    background-color: #c3c2c2; /* Couleur de bordure sophistiquée */
     transform: translateX(50%);
     
 }
 
 
 .test{
-  background-color: rgb(229, 240, 251);
+  background-color: rgb(245, 245, 245);
 }
 
 
-.school{
+/* .school{
   background-color: #EFEFEF;
-}
+} */
   
   
   
