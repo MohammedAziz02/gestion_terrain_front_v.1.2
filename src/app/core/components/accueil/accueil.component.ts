@@ -64,7 +64,7 @@ export class AccueilComponent {
         if(authUser.role=="ROLE_ADMIN"){
           this.router.navigate(['/home/reserveradmin']);
         }else if(authUser.role=="ROLE_USER"){
-          this.router.navigate(['/home/reserveruser']);
+          this.router.navigate(['/home/reserve']);
         }else{
           console.log("not authorized");
         }

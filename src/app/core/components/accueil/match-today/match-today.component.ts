@@ -31,7 +31,7 @@ export class MatchTodayComponent {
     const matchOfToday = new MatchOfToday(date00,date23,terrain);
     this.reservationService.getMatchesofToday(matchOfToday).subscribe(
       data => {
-        console.log(data);
+        console.log("today",data);
         this.matchtodaydata = data;
       },
       err => {

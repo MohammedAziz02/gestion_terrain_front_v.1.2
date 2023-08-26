@@ -19,6 +19,7 @@ import { UpdatePasswordComponent } from './core/components/accueil/update-passwo
 import { TokenGuard } from './core/guards/TokenGuard';
 import { MatchOfToday } from './core/models/matchOfToday';
 import { MatchTodayComponent } from './core/components/accueil/match-today/match-today.component';
+import { MyReservationsComponent } from './core/components/my-reservations/my-reservations.component';
 
 const routes: Routes = [
   // { path: 'signup', component: SignupComponent, title: "Accueil - Signup " },
@@ -27,7 +28,7 @@ const routes: Routes = [
   // { path: 'verify-token/:token', component: VerifyTokenComponent, title: "Accueil - Verify token  " },
   // {path: 'update-password', component: UpdatePasswordComponent, title: "Accueil - Update password "},
   // { path: 'match-today', component: MatchTodayComponent, title: "Home - match of today "},
-  { path: '', redirectTo: '/accueil', pathMatch: 'full' },
+  { path: '', redirectTo: '/accueil/match-today', pathMatch: 'full' },
   { path: 'accueil', component: AccueilComponent, title: "Accueil - Accueil " ,
     children: [
       { path: '', redirectTo: 'match-today', pathMatch: 'full' },
@@ -54,6 +55,7 @@ const routes: Routes = [
       { path: 'reserveradmin', component: ReservationAdminComponent, canActivate: [AuthGuard], title: "Home - admininstration" },
       { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard], title: "Home - Profile" },
       { path: 'editprofile', component: EditPorfileComponent, canActivate: [AuthGuard], title: "Home - Edit profile" },
+      { path: 'myreservations', component: MyReservationsComponent, canActivate: [AuthGuard], title: "Home - My Reservations " },
     ]
   },
   { path: '**', component: PagenotfoundComponent },

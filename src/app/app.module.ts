@@ -27,6 +27,8 @@ import { MatchTodayComponent } from './core/components/accueil/match-today/match
 import { ResetPasswordComponent } from './core/components/accueil/reset-password/reset-password.component';
 import { VerifyTokenComponent } from './core/components/accueil/verify-token/verify-token.component';
 import { UpdatePasswordComponent } from './core/components/accueil/update-password/update-password.component';
+import { DataTablesModule } from "angular-datatables";
+import { MyReservationsComponent } from './core/components/my-reservations/my-reservations.component';
 
 
 
@@ -51,6 +53,7 @@ import { UpdatePasswordComponent } from './core/components/accueil/update-passwo
     ResetPasswordComponent,
     VerifyTokenComponent,
     UpdatePasswordComponent,
+    MyReservationsComponent,
 
   ],
   imports: [
@@ -60,9 +63,8 @@ import { UpdatePasswordComponent } from './core/components/accueil/update-passwo
     HttpClientModule,
     FormsModule,
     NgbDropdownModule,
-    NgbCarouselModule
-
-
+    NgbCarouselModule,
+    DataTablesModule
   ],
   providers: [AuthGuard,authInterceptorProviders],
   bootstrap: [AppComponent]
