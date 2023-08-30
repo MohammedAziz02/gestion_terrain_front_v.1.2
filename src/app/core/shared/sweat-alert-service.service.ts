@@ -54,7 +54,8 @@ export class SweatAlertServiceService {
       showCancelButton: true,
       confirmButtonText: 'Yes, delete it!',
       cancelButtonText: 'No, cancel!',
-      reverseButtons: true
+      reverseButtons: true,
+      confirmButtonColor: '#dc3545',
     })
   }
 }

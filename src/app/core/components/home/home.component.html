@@ -14,7 +14,7 @@
         <div class="dropdown-menu" ngbDropdownMenu>
           <button ngbDropdownItem [routerLink]="['/home/profile']"> <i class="fa-solid fa-eye"></i> Show Profile </button>
           <button ngbDropdownItem [routerLink]="['/home/editprofile']"> <i class="fa-solid fa-user-pen"></i> Edit Profile </button>
-          <button ngbDropdownItem   [routerLink]="['/home/myreservations']"> <i class="fa-solid fa-user-pen"></i> My Reservations </button>
+          <button ngbDropdownItem   [routerLink]="['/home/myreservations']"> <i class="fa-solid fa-rectangle-list"></i> My Reservations </button>
           <button ngbDropdownItem   [routerLink]="['/home/reserveradmin']" *ngIf="role === 'ROLE_ADMIN'"> <i class="fa-solid fa-file-pen"></i> handle Reservations </button>
           <div class="dropdown-divider"></div>
           <button (click)="signOut()" class="btn btn-primary" ngbDropdownItem > <i class="fa-solid fa-right-from-bracket mx-1"></i>Sign Out </button>

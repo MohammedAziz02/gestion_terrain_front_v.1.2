@@ -7,17 +7,25 @@
     <!-- Utilisez "userprofile" pour afficher les données du profil -->
 
     <div *ngIf="userprofile" class="container-fluid" style="background-color: #f4f5f7;">
+
         <div class="container  py-5 h-100">
             <div class="row d-flex justify-content-center align-items-center h-100">
+
                 <div class="col col-lg-6 mb-4 mb-lg-0">
                     <div class="card mb-3" style="border-radius: .5rem;">
                         <div class="row g-0">
-                            <div class="col-md-4 gradient-custom text-center text-white"
+                            <span class="click goback mx-2" (click)="goback()"><i class="fa-solid fa-angles-left mt-2 "
+                                style="color: #0d49af;"></i>
+                            Previous </span>
+                            <div class="col-md-4 gradient-custom text-center"
                                 style="border-top-left-radius: .5rem; border-bottom-left-radius: .5rem;">
+                              
                                 <img [src]="'../../assets/images/' + userprofile.picture" alt="Avatar"
-                                    class="img-fluid shadow   p-2 my-5 bg-primary !spacing border rounded" width="150" />
+                                    class="img-fluid shadow   p-2 my-5 bg-primary !spacing border rounded"
+                                    width="150" />
                             </div>
                             <div class="col-md-8">
+
                                 <div class="card-body p-4">
                                     <h6 class="text-center">Informations</h6>
                                     <hr class="mt-0 mb-4">

@@ -4,32 +4,34 @@ import { DateHelper } from '../../utils/DateHelper';
 import { get } from 'jquery';
 import Swal from 'sweetalert2';
 import { SweatAlertServiceService } from '../../shared/sweat-alert-service.service';
+import { BaseComponent } from '../../helpers/BaseComponent';
 
 @Component({
   selector: 'app-reservationterrain-admin',
   templateUrl: './reservation-admin.component.html',
   styleUrls: ['./reservation-admin.component.css']
 })
-export class ReservationAdminComponent {
+export class ReservationAdminComponent   extends BaseComponent{
 
   allReservations: any;
 
-  tData: boolean = false;
+  isRender: boolean = false;
 
   constructor(protected reservationService: ReservationService,private swertAlertService : SweatAlertServiceService) {
     console.log("reservationterrainadmin is rendered constructor");
+    super();
   }
 
   ngOnInit() {
     console.log("reservationterrainadmin is rendered ngOnInit");
     this.getAllReservations();
-    console.log("ngoninit--------->", this.tData);
+    console.log("ngoninit--------->", this.isRender);
   }
 
    getAllReservations() {
    
     this.reservationService.getAllReservations().subscribe((data) => {
-      this.tData = true;
+      this.isRender = true;
       this.allReservations = data;
       this.reservationService.setIsLoading(false);
       console.log(this.allReservations);
@@ -39,7 +41,7 @@ export class ReservationAdminComponent {
         console.log(err);
       })
 
-    console.log("getAllReservations--------->", this.tData);
+    console.log("getAllReservations--------->", this.isRender);
   }
 
 
@@ -55,7 +57,7 @@ export class ReservationAdminComponent {
     this.reservationService.deleteReservationById(id).subscribe(
       (data) => {
         console.log(data);
-        this.tData = false;
+        this.isRender = false;
         this.reservationService.setIsLoading(false);
         this.getAllReservations();
       },

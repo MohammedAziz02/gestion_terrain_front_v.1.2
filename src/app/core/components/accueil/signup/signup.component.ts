@@ -4,6 +4,7 @@ import { AuthserviceService } from '../../../services/authservice.service';
 import { Router } from '@angular/router';
 import { MessagesharedsinguploginService } from '../../../shared/messagesharedsinguplogin.service';
 import { NgControl, NgForm } from '@angular/forms';
+import { BaseComponent } from 'src/app/core/helpers/BaseComponent';
 
 
 @Component({
@@ -11,7 +12,7 @@ import { NgControl, NgForm } from '@angular/forms';
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.css']
 })
-export class SignupComponent {
+export class SignupComponent  extends BaseComponent {
   signuprequest: Signup = new Signup("", "", "", "", "", "", "", "", "", "");
   messageerror: string = "";
   confirmPassword: string = "";
@@ -21,6 +22,7 @@ export class SignupComponent {
   
   constructor(protected authService: AuthserviceService, private router: Router, private messagesharedsinguploginService: MessagesharedsinguploginService) {
     console.log("signup is rendered constructor");
+    super();
   }
 
   ngOnInit(): void {

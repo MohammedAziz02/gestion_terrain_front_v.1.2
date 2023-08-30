@@ -3,17 +3,19 @@ import { ProfileService } from '../../services/profile.service';
 import { TokenStorageService } from '../../services/token-storage.service';
 import { Router } from '@angular/router';
 import { UserDto } from '../../models/UserDto';
+import { BaseComponent } from '../../helpers/BaseComponent';
 
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.css']
 })
-export class ProfileComponent {
+export class ProfileComponent  extends BaseComponent {
   userprofile: UserDto;
 
   constructor(protected profileService: ProfileService, private tokenStorageService: TokenStorageService, private router: Router) {
     console.log("profile is rendered constructor");
+    super();
   }
 
   ngOnInit() {

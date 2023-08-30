@@ -3,13 +3,14 @@ import { ReservationService } from '../../services/reservation.service';
 import { TokenStorageService } from '../../services/token-storage.service';
 import { DateHelper } from '../../utils/DateHelper';
 import { Subject } from 'rxjs';
+import { BaseComponent } from '../../helpers/BaseComponent';
 
 @Component({
   selector: 'app-my-reservations',
   templateUrl: './my-reservations.component.html',
   styleUrls: ['./my-reservations.component.css']
 })
-export class MyReservationsComponent {
+export class MyReservationsComponent  extends BaseComponent {
 
   myReservation : any;
   // dtOptions: DataTables.Settings = {};
@@ -18,7 +19,9 @@ export class MyReservationsComponent {
   constructor(
     protected reservationService: ReservationService,
     private tokenStorageService: TokenStorageService
-  ) { }
+  ) { 
+    super();
+  }
 
   ngOnInit(): void {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.

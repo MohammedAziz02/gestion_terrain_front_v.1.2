@@ -1,46 +1,50 @@
-<div *ngIf="tData" class="container  shadow p-3 ">
-    <h3 class="text-center mb-4 fw-5 text-primary ">Reservations List</h3>
-    <hr/>
-    <div class="d-flex justify-content-center col-12 col-sm-8 mx-auto my-2" *ngIf="reservationService.isLoading">
-      <div class="spinner-grow" role="status"> </div>
-    </div>
-    
-    <ng-container *ngIf="allReservations != null; else noReservations">
-      <div class="table-responsive">
-        <table datatable class="table  table-bordered table-striped table-hover">
-          <thead>
-            <tr>
-              <th class="text-center text-primary">First & Last name</th>
-              <th class="text-center text-primary">Academic Email</th>
-              <th class="text-center text-primary">Date Match</th>
-              <th class="text-center text-primary">Date Reservation</th>
-              <th class="text-center text-primary">Against Who</th>
-              <th class="text-center text-primary">Terrain</th>
-              <th class="text-center text-primary">Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let reservation of allReservations">
-                <td class="text-center">{{ reservation.user.firstName }}  {{ reservation.user.lastName }} </td>
-                <td class="text-center">{{ reservation.user.academicemail }}</td>
-              <td class="text-center">
-                {{ formatDate(reservation.date_match) }}
-                /
-                {{ formatDateRange(reservation.date_match) }}
-              </td>
-              <td class="text-center">{{ formatDateWithHoursAndSecondes(reservation.date_reservation) }}</td>
-              <td class="text-center">{{ reservation.against_who }}</td>
-              <td class="text-center">{{ reservation.terrain.name }}</td>
-              <td class="text-center"><button class="btn btn-danger w-100" (click)="handleDeleteReservation(reservation.id)" > <i class="fa-solid fa-trash" style="color: #ffffff;"></i>  Delete</button></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </ng-container>
-    <ng-template #noReservations>
-      
-      <div class="alert alert-danger text-center">
-         no reservations yet.
-      </div>
-    </ng-template>
+<div *ngIf="isRender" class="container  shadow p-3 ">
+  <span class="click goback" (click)="goback()"><i class="fa-solid fa-angles-left mt-2 " style="color: #0d49af;"></i>
+    Previous </span>
+  <h3 class="text-center mb-4 fw-5 text-primary ">Reservations List</h3>
+  <hr />
+  <div class="d-flex justify-content-center col-12 col-sm-8 mx-auto my-2" *ngIf="reservationService.isLoading">
+    <div class="spinner-grow" role="status"> </div>
   </div>
+
+  <ng-container *ngIf="allReservations != null; else noReservations">
+    <div class="table-responsive">
+      <table datatable class="table  table-bordered table-striped table-hover">
+        <thead>
+          <tr>
+            <th class="text-center text-primary">First & Last name</th>
+            <th class="text-center text-primary">Academic Email</th>
+            <th class="text-center text-primary">Date Match</th>
+            <th class="text-center text-primary">Date Reservation</th>
+            <th class="text-center text-primary">Against Who</th>
+            <th class="text-center text-primary">Terrain</th>
+            <th class="text-center text-primary">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let reservation of allReservations">
+            <td class="text-center">{{ reservation.user.firstName }} {{ reservation.user.lastName }} </td>
+            <td class="text-center">{{ reservation.user.academicemail }}</td>
+            <td class="text-center">
+              {{ formatDate(reservation.date_match) }}
+              /
+              {{ formatDateRange(reservation.date_match) }}
+            </td>
+            <td class="text-center">{{ formatDateWithHoursAndSecondes(reservation.date_reservation) }}</td>
+            <td class="text-center">{{ reservation.against_who }}</td>
+            <td class="text-center">{{ reservation.terrain.name }}</td>
+            <td class="text-center"><button class="btn btn-danger w-100"
+                (click)="handleDeleteReservation(reservation.id)"> <i class="fa-solid fa-trash"
+                  style="color: #ffffff;"></i> Delete</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </ng-container>
+  <ng-template #noReservations>
+
+    <div class="alert alert-danger text-center">
+      no reservations yet.
+    </div>
+  </ng-template>
+</div>

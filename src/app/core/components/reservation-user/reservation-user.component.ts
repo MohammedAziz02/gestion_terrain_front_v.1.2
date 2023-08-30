@@ -5,13 +5,14 @@ import { ReservationService } from '../../services/reservation.service';
 import { ReservationDto } from '../../models/ReservationDto';
 import { TokenStorageService } from '../../services/token-storage.service';
 import { Router } from '@angular/router';
+import { BaseComponent } from '../../helpers/BaseComponent';
 
 @Component({
   selector: 'app-reservationterrain-user',
   templateUrl: './reservation-user.component.html',
   styleUrls: ['./reservation-user.component.css']
 })
-export class ReservationUserComponent {
+export class ReservationUserComponent   {
 
 
   isCardHovered1: boolean = false;
@@ -20,7 +21,9 @@ export class ReservationUserComponent {
 
 
 
-  constructor(private router: Router) { }
+  constructor(private router: Router) {
+    
+   }
 
 
   navigateToTerrainFoot() {

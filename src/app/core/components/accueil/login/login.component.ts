@@ -7,13 +7,14 @@ import { Login } from '../../../models/login';
 import { TokenStorageService } from '../../../services/token-storage.service';
 import { NgForm } from '@angular/forms';
 import { Subscription } from 'rxjs';
+import { BaseComponent } from 'src/app/core/helpers/BaseComponent';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent {
+export class LoginComponent extends BaseComponent {
   // come from signup component
   successmessage: String = "";
   // error message is  error from backend
@@ -25,6 +26,7 @@ export class LoginComponent {
 
   constructor(protected authService: AuthserviceService, private messagesharedsinguploginService: MessagesharedsinguploginService, private tokenStorage: TokenStorageService, private router: Router,private route: ActivatedRoute) {
     console.log("login is rendered constructor");
+    super();
    }
 
   ngOnInit(): void {

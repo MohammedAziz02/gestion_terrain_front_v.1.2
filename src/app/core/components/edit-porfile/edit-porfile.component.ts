@@ -5,13 +5,14 @@ import { Router } from '@angular/router';
 import { TokenStorageService } from '../../services/token-storage.service';
 import { NgFor } from '@angular/common';
 import { NgForm } from '@angular/forms';
+import { BaseComponent } from '../../helpers/BaseComponent';
 
 @Component({
   selector: 'app-edit-porfile',
   templateUrl: './edit-porfile.component.html',
   styleUrls: ['./edit-porfile.component.css']
 })
-export class EditPorfileComponent {
+export class EditPorfileComponent  extends BaseComponent {
   userprofile: UserDto;
   oldPassword: string;
   newPassword: string;
@@ -29,6 +30,7 @@ export class EditPorfileComponent {
 
   constructor(protected profileService: ProfileService, private tokenStorageService: TokenStorageService, private router: Router) {
     console.log("edit profile is rendered constructor");
+    super();
   }
 
 
