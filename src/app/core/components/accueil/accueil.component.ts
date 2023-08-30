@@ -15,12 +15,17 @@ import { SweatAlertServiceService } from '../../shared/sweat-alert-service.servi
 export class AccueilComponent {
 
   matchtodaydata : any;
-
   isCollapsed =true;
+  isAuthenticated : boolean;
+  authUser : any;
+  role: string;
 
 
   constructor(private tokenStorageService: TokenStorageService, private router : Router,private reservationService : ReservationService,private sweatAlertServiceService : SweatAlertServiceService) {
     console.log("accueil is rendered constructor");
+    this.isAuthenticated=!this.tokenStorageService.isAutheticated();
+    this.authUser = this.tokenStorageService.getUser();
+    this.role = this.authUser.role;
   }
 
   ngOnInit(){
@@ -54,21 +59,21 @@ export class AccueilComponent {
 
   handleReserverMatch(){
 
-    if(!this.tokenStorageService.isAutheticated()){
-      console.log("user is not authenticated");
-      this.sweatAlertServiceService.showError("You're not authenticated please register first!");
-      return;
-    }else{
-        const authUser = this.tokenStorageService.getUser();
-        console.log(authUser);
-        if(authUser.role=="ROLE_ADMIN"){
+    // if(!this.tokenStorageService.isAutheticated()){
+    //   console.log("user is not authenticated");
+    //   this.sweatAlertServiceService.showError("You're not authenticated please register first!");
+    //   return;
+    // }else{
+        
+        console.log(this.authUser);
+        if(this.authUser.role=="ROLE_ADMIN"){
           this.router.navigate(['/home/reserveradmin']);
-        }else if(authUser.role=="ROLE_USER"){
+        }else if(this.authUser.role=="ROLE_USER"){
           this.router.navigate(['/home/reserve']);
         }else{
           console.log("not authorized");
         }
-    }
+    // }
 
 
   }

@@ -9,8 +9,12 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent {
   isCollapsed=true;
+  authUser : any;
+  role: string;
   constructor(private tokenStorageService:TokenStorageService,private router: Router){
     console.log("home is rendered constructor");
+    this.authUser = this.tokenStorageService.getUser();
+    this.role = this.authUser.role;
   }
 
   ngOnInit(){

@@ -39,6 +39,11 @@ export class ReservationService extends BaseService {
     return this.httpclient.post<Number>(URL_API + 'v1/api/reservation/deletereservation', deleteReservationDto, httpOptionsJson);
   }
 
+  deleteReservationById(id: number) {
+    this.isLoading = true;
+    return this.httpclient.post<Number>(URL_API + 'v1/api/reservation/deletereservationbyid',id, httpOptionsJson);
+  }
+
   isUserReservatebetween2dates(request: UserReservationDate) {
     this.isLoading = true;
     return this.httpclient.post<number>(URL_API + 'v1/api/reservation/reservationLoggedUserfortoday', request, httpOptionsJson);
@@ -53,6 +58,12 @@ export class ReservationService extends BaseService {
   getMyReservations(request: string) {
     this.isLoading = true;
     return this.httpclient.post<any>(URL_API + 'v1/api/reservation/myreservations', request, httpOptionsJson);
+  }
+
+
+  getAllReservations(){
+    this.isLoading = true;
+    return this.httpclient.get<any>(URL_API + 'v1/api/reservation/allreservations', httpOptionsJson);
   }
 
 }

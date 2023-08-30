@@ -7,8 +7,18 @@
     <div class="collapse navbar-collapse mt-2" #collapse="ngbCollapse" [(ngbCollapse)]="isCollapsed ">
       <div class="d-flex flex-column flex-sm-row justify-content-between w-100 ">
         <div class="d-flex flex-column flex-sm-row gap-sm-4 ">
-          <ul class="navbar-nav">
-            <li class="nav-item"><button (click)="handleReserverMatch()" class="nav-link">Reserver un match <i class="fa-solid fa-clipboard-list" style="color: #ffffff;"></i></button></li>
+          <ul  [hidden]="isAuthenticated" class="navbar-nav">
+            <li class="nav-item">
+              <button *ngIf="role === 'ROLE_USER'" (click)="handleReserverMatch()" class="nav-link">
+                Reserver un match <i class="fa-solid fa-clipboard-list" style="color: #ffffff;"></i>
+              </button>
+              <button *ngIf="role === 'ROLE_ADMIN'" (click)="handleReserverMatch()" class="nav-link">
+                Handle Reservation <i class="fa-solid fa-clipboard-list" style="color: #ffffff;"></i>
+              </button>
+              
+              <!-- <button (click)="handleReserverMatch()" class="nav-link">Reserver un match <i class="fa-solid fa-clipboard-list" style="color: #ffffff;"></i></button> -->
+            
+            </li>
           </ul>
           <ul class="navbar-nav">
             <li class="nav-item"><button class="nav-link">About the application <i class="fa-solid fa-circle-info" style="color: #ffffff;"></i></button></li>
