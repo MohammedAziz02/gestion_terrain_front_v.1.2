@@ -49,6 +49,12 @@ export class ReservationService extends BaseService {
     return this.httpclient.post<any>(URL_API + 'v1/api/reservation/matchesoftoday', request, httpOptionsJson);
   }
 
+
+  getMyReservations(request: string) {
+    this.isLoading = true;
+    return this.httpclient.post<any>(URL_API + 'v1/api/reservation/myreservations', request, httpOptionsJson);
+  }
+
 }
 
 
