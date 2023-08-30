@@ -45,4 +45,16 @@ export class SweatAlertServiceService {
   showCustom(options: SweetAlertOptions): void {
     Swal.fire(options);
   }
+
+  showDelete(message: string): any {
+    return Swal.fire({
+      title: message,
+      text: 'You will not be able to recover this reservation!',
+      icon: 'error',
+      showCancelButton: true,
+      confirmButtonText: 'Yes, delete it!',
+      cancelButtonText: 'No, cancel!',
+      reverseButtons: true
+    })
+  }
 }
