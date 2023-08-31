@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
 import { ReservationService } from '../../services/reservation.service';
 import { DateHelper } from '../../utils/DateHelper';
-import { get } from 'jquery';
-import Swal from 'sweetalert2';
 import { SweatAlertServiceService } from '../../shared/sweat-alert-service.service';
 import { BaseComponent } from '../../helpers/BaseComponent';
 
