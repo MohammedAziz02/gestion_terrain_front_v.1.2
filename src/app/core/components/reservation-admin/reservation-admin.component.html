@@ -1,11 +1,12 @@
+<div class="d-flex justify-content-center col-12 col-sm-8 mx-auto my-2" *ngIf="reservationService.isLoading">
+  <div class="spinner-grow" role="status"> </div>
+</div>
 <div *ngIf="isRender" class="container  shadow p-3 ">
   <span class="click goback" (click)="goback()"><i class="fa-solid fa-angles-left mt-2 " style="color: #0d49af;"></i>
     Previous </span>
   <h3 class="text-center mb-4 fw-5 text-primary ">Reservations List</h3>
   <hr />
-  <div class="d-flex justify-content-center col-12 col-sm-8 mx-auto my-2" *ngIf="reservationService.isLoading">
-    <div class="spinner-grow" role="status"> </div>
-  </div>
+ 
 
   <ng-container *ngIf="allReservations != null; else noReservations">
     <div class="table-responsive">

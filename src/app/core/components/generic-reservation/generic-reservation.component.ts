@@ -42,6 +42,9 @@ export class GenericReservationComponent {
   selectedDate: Date;
   isreservatefirstday: boolean = false;
   isreservatesecondday: boolean = false;
+
+  selectedDayIndex: number = 0;
+
   constructor(
     protected modalService: NgbModal,
     protected reservationService: ReservationService,

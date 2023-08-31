@@ -1,9 +1,12 @@
 <div class="container">
   <!-- <button  (click)="handletest()">ok</button> -->
   <span  class="click" (click)="goback()"><i class="fa-solid fa-angles-left mt-2 " style="color: #0d49af;"></i> Previous </span>
+  <div class="d-flex badge bg-primary fw-bold fs-5 justify-content-center align-items-center shadow my-2">
+      {{selectedTerrain}}
+  </div>
     <ul ngbNav #nav="ngbNav" class="nav-tabs">
       <li [ngbNavItem]="index" *ngFor="let day of dates; let index = index">
-        <button ngbNavLink class="day-button">{{ day.day }}</button>
+        <button ngbNavLink class="day-button"   [class.active]="selectedDayIndex === index" (click)="selectedDayIndex = index">{{ day.day }}</button>
         <ng-template ngbNavContent>
           <ul class="list-group">
             <li class="list-group-item d-flex gap-3" *ngFor="let date of day.dates">
@@ -50,7 +53,7 @@
     
    
   
-    <div [ngbNavOutlet]="nav" class="mt-2"></div>
+    <div [ngbNavOutlet]="nav" class="mt-2 shadow"></div>
   </div>
   
   <ng-template #content let-modal>

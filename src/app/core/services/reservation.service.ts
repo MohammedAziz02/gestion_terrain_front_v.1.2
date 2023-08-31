@@ -4,7 +4,7 @@ import { ReservationDto } from '../models/ReservationDto';
 import { httpOptionsJson } from '../constants/constantes';
 import { URL_API } from '../constants/constantes';
 import { HttpClient } from '@angular/common/http';
-import { Observable, delay, of, switchMap } from 'rxjs';
+import { Observable, concatMap, delay, of, switchMap, timer } from 'rxjs';
 import { GetDatesAboutReservation } from '../models/GetDatesAboutReservation';
 import { DeleteReservationDto } from '../models/DeleteReservationDto';
 import { UserReservationDate } from '../models/UserReservationDate';
@@ -65,6 +65,7 @@ export class ReservationService extends BaseService {
     this.isLoading = true;
     return this.httpclient.get<any>(URL_API + 'v1/api/reservation/allreservations', httpOptionsJson);
   }
+  
 
 }
 

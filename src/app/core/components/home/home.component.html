@@ -1,16 +1,21 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container px-5">
     <a class="navbar-brand" [routerLink]="['/accueil']" >ENSAH TERRAIN <i class="fa-solid fa-futbol" style="color: #2861c3;"></i> </a>
-    <button class="navbar-toggler" type="button" (click)="collapse.toggle()" [attr.aria-expanded]="!isCollapsed "><span
+    
+    <button class="navbar-toggler my-2" type="button" (click)="collapse.toggle()" [attr.aria-expanded]="!isCollapsed "><span
         class="navbar-toggler-icon"></span></button>
 
 
     <div class="collapse navbar-collapse" #collapse="ngbCollapse" [(ngbCollapse)]="isCollapsed ">
-      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-        <button class="nav-item btn btn-danger" [routerLink]="['/home/reserve']" ><i class="fa-solid fa-plus"></i> Réserver un match</button>
-      </ul>
+     
+      
       <div class="btn-group ms-auto" ngbDropdown role="group" aria-label="Button group with nested dropdown">
-        <button type="button" class="btn btn-outline-light" ngbDropdownToggle> <i class="bi bi-person-circle"></i> Profile </button>
+        <div class="d-flex align-items-center">
+          <ul class="navbar-nav ms-auto  mb-lg-0">
+            <button class="nav-item btn btn-outline-light mx-2" [routerLink]="['/home/reserve']" ><i class="fa-solid fa-plus"></i> Add Reservation</button>
+          </ul>
+          <button type="button" class="btn btn-outline-light" ngbDropdownToggle> <i class="bi bi-person-circle"></i> Profile </button>
+        </div>
         <div class="dropdown-menu" ngbDropdownMenu>
           <button ngbDropdownItem [routerLink]="['/home/profile']"> <i class="fa-solid fa-eye"></i> Show Profile </button>
           <button ngbDropdownItem [routerLink]="['/home/editprofile']"> <i class="fa-solid fa-user-pen"></i> Edit Profile </button>

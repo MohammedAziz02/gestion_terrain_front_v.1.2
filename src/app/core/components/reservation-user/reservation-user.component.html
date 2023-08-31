@@ -12,18 +12,21 @@
           <div class="card shadow" style="max-width: 300px;" [class.resized]="isCardHovered1"
               (mouseenter)="isCardHovered1 = true" (mouseleave)="isCardHovered1 = false"
               (click)="navigateToTerrainFoot()">
+              <div class="img-contain">
               <img src="../assets/images_web/terrain_foot.jpeg" class="img-fluid " />
+            </div>
               <div class="card-body">
-                  <h5 class="card-title text-center">Terrain de FootBall</h5>
+                  <h5 class="card-title text-center">Football Field</h5>
 
               </div>
           </div>
           <div class="card shadow " style="max-width: 300px;" [class.resized]="isCardHovered2"
               (mouseenter)="isCardHovered2 = true" (mouseleave)="isCardHovered2 = false" (click)="navigateToTerrainVolley()" >
-              <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/041.webp" class="card-img-top"
-                  alt="Hollywood Sign on The Hill" />
+              <div class="img-contain">
+                <img src="../assets/images_web/terrain_volleyball.jpg" class="img-fluid " />
+                </div>
               <div class="card-body">
-                  <h5 class="card-title text-center">Terrain de VoleyBall</h5>
+                  <h5 class="card-title text-center">Voleyball Field</h5>
 
               </div>
           </div>

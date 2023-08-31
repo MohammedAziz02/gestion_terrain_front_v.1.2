@@ -46,3 +46,10 @@
     margin-top: 5px;
     font-size: 14px;
   }
+
+  .day-button.active {
+    background-color:rgb(154, 11, 11); 
+    color: #ffffff; 
+    border-bottom: 4px solid #b6b6b6;
+
+  }
