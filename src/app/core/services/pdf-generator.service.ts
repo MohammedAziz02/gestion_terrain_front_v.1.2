@@ -15,10 +15,10 @@ export class PdfGeneratorService {
     });
 
     const img = new Image();
-    img.src = 'assets/logo.png';
+    img.src = 'assets/images_web/logo.png';
 
     const signature = new Image();
-    signature.src = 'assets/signature1.png';
+    signature.src = 'assets/images_web/signature1.png';
 
     img.onload = () => {
       // Set the background color
@@ -79,7 +79,7 @@ export class PdfGeneratorService {
       }
       doc.setFont('helvetica', 'bold');
 
-      doc.setTextColor("#ba0606"); // Red text color
+      doc.setTextColor("#fc9a9a"); // Red text color
 
       doc.text(
         `- Date match: ${convertDate(dateMatch)} -- ${
