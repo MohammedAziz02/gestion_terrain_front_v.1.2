@@ -15,9 +15,6 @@ import { ReservationAdminComponent } from './core/components/reservation-admin/r
 import { ResetPasswordComponent } from './core/components/accueil/reset-password/reset-password.component';
 import { VerifyTokenComponent } from './core/components/accueil/verify-token/verify-token.component';
 import { UpdatePasswordComponent } from './core/components/accueil/update-password/update-password.component';
-// import { ResetPasswordComponent } from './core/components/accueil/reset-password/reset-password.component';
-import { TokenGuard } from './core/guards/TokenGuard';
-import { MatchOfToday } from './core/models/matchOfToday';
 import { MatchTodayComponent } from './core/components/accueil/match-today/match-today.component';
 import { MyReservationsComponent } from './core/components/my-reservations/my-reservations.component';
 

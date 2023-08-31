@@ -53,4 +53,9 @@ export class MyReservationsComponent  extends BaseComponent {
     return DateHelper.formatDate(dateofmatch);
   }
 
+  formatDatewithHoursandSecondes(date : string){
+    // const dateofmatch = new Date(date);
+    return DateHelper.formatDatewithHoursandSecondes(date);
+  }
+
 }
