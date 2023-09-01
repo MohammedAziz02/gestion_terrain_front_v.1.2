@@ -61,7 +61,7 @@
       <div class="spinner-grow" role="status"> </div>
     </div>
     <div class="modal-header">
-      <h4 class="modal-title" id="modal-basic-title">Sélectionner un terrain</h4>
+      <h4 class="modal-title" id="modal-basic-title">Against Who</h4>
       <button class="btn btn-danger" type="button" (click)="modal.dismiss()">
         <span>X</span>
       </button>
@@ -74,7 +74,7 @@
       </div>
       <form #formf="ngForm">
         <div class="form-control">
-          <label> Againt who : </label>
+          <label> please tap the name of your opponent : </label>
           <input type="text" class="form-control mt-3" name="againtwho" [(ngModel)]="againstwho"
             placeholder="Entrez quelque chose" required>
         </div>
@@ -83,7 +83,7 @@
     <div class="modal-footer">
       <button type="button" class="btn btn-secondary" (click)="modal.dismiss()">Annuler</button>
       <button type="button" [disabled]="formf.invalid  && !againstwho" class="btn btn-primary"
-        (click)="sendReservation(modal)">Envoyer</button>
+        (click)="sendReservation(modal)">Réserver</button>
     </div>
   </ng-template>
   
