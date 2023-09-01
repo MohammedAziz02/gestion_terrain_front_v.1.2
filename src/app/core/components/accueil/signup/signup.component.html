@@ -118,7 +118,7 @@
                     <select [ngClass]="{ 'is-invalid': role.touched && role.invalid }" class="form-control" id="role"
                         name="role" [(ngModel)]="signuprequest.role" #role="ngModel" required>
                         <option value="USER">USER</option>
-                        <option value="ADMIN">ADMIN</option>
+                        <option disabled value="ADMIN">ADMIN</option>
                     </select>
                     <div class="invalid-feedback" *ngIf="role.touched && role.invalid">
                         <p *ngIf="role.invalid">Role is required</p>
@@ -164,7 +164,9 @@
                     <label for="password">Password</label>
                     <input type="password" class="form-control" id="password" name="password"
                         [(ngModel)]="signuprequest.password" #password="ngModel"
-                        [ngClass]="{ 'is-invalid': password.touched && password.invalid }" required>
+                        [ngClass]="{ 'is-invalid': password.touched && password.invalid }"
+                        (ngModelChange)="handleChange()"
+                        required>
                     <div class="invalid-feedback" *ngIf="password.touched && password.invalid">
                         <p *ngIf="password.invalid">password is required</p>
                     </div>
@@ -172,12 +174,15 @@
                 <div class="col-sm-6">
                     <label for="passwordconfirm">Confirm Password</label>
                     <input type="password" class="form-control" id="passwordconfirm" name="passwordconfirm"
-                        [(ngModel)]="signuprequest.confirmPassword" #passwordconfirm="ngModel"
-                        [ngClass]="{ 'is-invalid': passwordconfirm.touched && passwordconfirm.invalid }" required>
-                    <div class="invalid-feedback" *ngIf="passwordconfirm.touched">
+                        [(ngModel)]="confirmPassword" #passwordconfirm="ngModel"
+                        [ngClass]="{ 'is-invalid': passwordconfirm.dirty && passwordconfirm.invalid  || confirmPassword !== password.value}"
+                        (ngModelChange)="handleChange()"
+                        required>
+                    <div class="text-danger" *ngIf="passwordconfirm.dirty">
                         <p *ngIf="passwordconfirm.errors?.['required']">Confirm Password is required</p>
-                        <p *ngIf="passwordconfirm.value !== signuprequest.password">Passwords do not match</p>
+                        <p *ngIf="confirmPassword !== password.value">Passwords do not match</p>
                     </div>
+                  
                 </div>
             </div>
 

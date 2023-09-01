@@ -121,4 +121,10 @@ export class SignupComponent  extends BaseComponent {
   }
 
 
+
+  handleChange(){
+    console.log("signup password ",this.signuprequest.password,"confirm password ",this.confirmPassword);
+  }
+
+
 }
