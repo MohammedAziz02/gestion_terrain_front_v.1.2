@@ -1,5 +1,6 @@
 .profilepic {
     position: relative;
+   
   }
   
   .profilepic:hover .profilepic__content {
@@ -14,6 +15,7 @@
     object-fit: cover;
     opacity: 1;
     transition: opacity .2s ease-in-out;
+    max-height: 300px;
   }
   
   .profilepic__content {

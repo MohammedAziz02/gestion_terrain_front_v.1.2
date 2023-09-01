@@ -18,6 +18,7 @@ export class EditPorfileComponent  extends BaseComponent {
   newPassword: string;
   // for message of picturechanged
   messagepicchangedsuccess: string;
+  messagepicchangederror: string;
   // for message of password
   messagepasschangedsuccess: string;
   messagepasschangederror: string;
@@ -120,8 +121,16 @@ export class EditPorfileComponent  extends BaseComponent {
     this.messagepicchangedsuccess = "";
     this.pictureupdate = true;
     const file = event.target.files[0];
+    console.log("file------------>", file);
+    if(file.size > 3000000){
+      this.messagepicchangederror = "File size must be less than 3MB";
+      this.messagepasschangedsuccess="";
+      this.pictureupdate = false;
+      return;
+    }
     const formData = new FormData();
     formData.append('picture', file);
+    
     this.profileService.changePicture(formData).subscribe(
       (data: any) => {
         console.log("data from updating picture", data);
@@ -129,6 +138,7 @@ export class EditPorfileComponent  extends BaseComponent {
         this.pictureupdate = false;
         this.userprofile.picture = data.message;
         this.messagepicchangedsuccess = "Picture changed successfully";
+        this.messagepicchangederror = "";
         // window.location.reload();
         // this.router.navigate(['/home/profile']);
       },

@@ -9,6 +9,9 @@
             <div class="alert alert-success text-center" *ngIf="messagepicchangedsuccess">
                 <strong>Success!</strong> Profile picture changed successfully.
             </div>
+            <div class="alert alert-danger text-center" *ngIf="messagepicchangederror">
+                <strong>Error!</strong> Profile picture not changed. size > 3MB
+            </div>
             <!-- Profile picture card-->
             <div class="card mb-4 mb-xl-0">
                 <div class="card-header text-center"> <i class="fa-solid fa-image"></i> Profile Picture</div>
@@ -22,7 +25,7 @@
 
                         <div class="profilepic">
 
-                        <img class=" img-fluid shadow  p-3 mb-5 bg-primary !spacing border rounded profilepic__image "
+                        <img class=" img-fluid shadow  p-3 mb-5 border-4 border-primary !spacing border rounded profilepic__image "
                             width="300"  [src]="'../../assets/images/' + userprofile.picture" alt="">
                             <div  class="profilepic__content">
                                 <span class="profilepic__icon"><i class="fas fa-camera"></i></span>
@@ -35,7 +38,7 @@
                            
 
                         <!-- Profile picture help block-->
-                        <div class="small font-italic text-muted mb-4">JPG or PNG no larger than 5 MB</div>
+                        <div class="small font-italic text-muted mb-4">JPG or PNG no larger than 3 MB</div>
                         <!-- Profile picture upload button-->
 
                         <!-- <button class="btn btn-primary" type="submit">Upload new image</button> -->
