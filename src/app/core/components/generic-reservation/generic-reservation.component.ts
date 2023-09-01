@@ -116,6 +116,8 @@ export class GenericReservationComponent {
         console.log(error);
       }
     );
+
+    console.log("this.dates ",this.dates);
   }
 
   goback(){
@@ -283,4 +285,11 @@ sendReservation(modal: NgbModalRef) {
   formatDateRange(date: Date): string {
     return DateHelper.formatDateRange(date);
   }
+
+
+
+   extractDateFromArray(firstDate: Date): string {
+     const formattedDate = `${firstDate.getDate()} ${firstDate.toLocaleString('default', { month: 'long' })} ${firstDate.getFullYear()}`;
+      return formattedDate;
+   }
 }

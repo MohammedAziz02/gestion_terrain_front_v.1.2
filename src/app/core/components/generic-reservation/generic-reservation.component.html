@@ -6,7 +6,7 @@
   </div>
     <ul ngbNav #nav="ngbNav" class="nav-tabs">
       <li [ngbNavItem]="index" *ngFor="let day of dates; let index = index">
-        <button ngbNavLink class="day-button"   [class.active]="selectedDayIndex === index" (click)="selectedDayIndex = index">{{ day.day }}</button>
+        <button ngbNavLink class="day-button"   [class.active]="selectedDayIndex === index" (click)="selectedDayIndex = index">{{ day.day }} {{extractDateFromArray(day.dates[0])}}</button>
         <ng-template ngbNavContent>
           <ul class="list-group">
             <li class="list-group-item d-flex gap-3" *ngFor="let date of day.dates">
