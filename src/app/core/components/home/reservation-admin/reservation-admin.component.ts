@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { ReservationService } from '../../services/reservation.service';
-import { DateHelper } from '../../utils/DateHelper';
-import { SweatAlertServiceService } from '../../shared/sweat-alert-service.service';
-import { BaseComponent } from '../../helpers/BaseComponent';
+import { ReservationService } from '../../../services/reservation.service';
+import { DateHelper } from '../../../utils/DateHelper';
+import { SweatAlertServiceService } from '../../../shared/sweat-alert-service.service';
+import { BaseComponent } from '../../../helpers/BaseComponent';
 
 @Component({
   selector: 'app-reservationterrain-admin',

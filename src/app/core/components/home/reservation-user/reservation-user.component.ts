@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap'; // Import NgbModal and NgbModalRef
-import { DateHelper } from '../../utils/DateHelper';
-import { ReservationService } from '../../services/reservation.service';
-import { ReservationDto } from '../../models/ReservationDto';
-import { TokenStorageService } from '../../services/token-storage.service';
+import { DateHelper } from '../../../utils/DateHelper';
+import { ReservationService } from '../../../services/reservation.service';
+import { ReservationDto } from '../../../models/ReservationDto';
+import { TokenStorageService } from '../../../services/token-storage.service';
 import { Router } from '@angular/router';
-import { BaseComponent } from '../../helpers/BaseComponent';
+import { BaseComponent } from '../../../helpers/BaseComponent';
 
 @Component({
   selector: 'app-reservationterrain-user',

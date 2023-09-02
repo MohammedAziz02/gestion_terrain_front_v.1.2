@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { ReservationService } from '../../services/reservation.service';
-import { TokenStorageService } from '../../services/token-storage.service';
-import { DateHelper } from '../../utils/DateHelper';
+import { ReservationService } from '../../../services/reservation.service';
+import { TokenStorageService } from '../../../services/token-storage.service';
+import { DateHelper } from '../../../utils/DateHelper';
 import { Subject } from 'rxjs';
-import { BaseComponent } from '../../helpers/BaseComponent';
+import { BaseComponent } from '../../../helpers/BaseComponent';
 
 @Component({
   selector: 'app-my-reservations',

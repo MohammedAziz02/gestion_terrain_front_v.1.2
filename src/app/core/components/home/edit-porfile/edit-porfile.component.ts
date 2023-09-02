@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
-import { UserDto } from '../../models/UserDto';
-import { ProfileService } from '../../services/profile.service';
+import { UserDto } from '../../../models/UserDto';
+import { ProfileService } from '../../../services/profile.service';
 import { Router } from '@angular/router';
-import { TokenStorageService } from '../../services/token-storage.service';
+import { TokenStorageService } from '../../../services/token-storage.service';
 import { NgFor } from '@angular/common';
 import { NgForm } from '@angular/forms';
-import { BaseComponent } from '../../helpers/BaseComponent';
+import { BaseComponent } from '../../../helpers/BaseComponent';
 
 @Component({
   selector: 'app-edit-porfile',

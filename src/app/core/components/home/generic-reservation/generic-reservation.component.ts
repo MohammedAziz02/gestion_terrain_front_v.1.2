@@ -1,15 +1,15 @@
 import { Component } from '@angular/core';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
-import { ReservationService } from '../../services/reservation.service';
-import { TokenStorageService } from '../../services/token-storage.service';
+import { ReservationService } from '../../../services/reservation.service';
+import { TokenStorageService } from '../../../services/token-storage.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { DateHelper } from '../../utils/DateHelper';
-import { GetDatesAboutReservation } from '../../models/GetDatesAboutReservation';
-import { DeleteReservationDto } from '../../models/DeleteReservationDto';
-import { ReservationDto } from '../../models/ReservationDto';
-import { PdfGeneratorService } from '../../services/pdf-generator.service';
-import { WhetherService } from '../../services/whether.service';
-import { UserReservationDate } from '../../models/UserReservationDate';
+import { DateHelper } from '../../../utils/DateHelper';
+import { GetDatesAboutReservation } from '../../../models/GetDatesAboutReservation';
+import { DeleteReservationDto } from '../../../models/DeleteReservationDto';
+import { ReservationDto } from '../../../models/ReservationDto';
+import { PdfGeneratorService } from '../../../services/pdf-generator.service';
+import { WhetherService } from '../../../services/whether.service';
+import { UserReservationDate } from '../../../models/UserReservationDate';
 
 @Component({
   selector: 'app-generic-reservation',
