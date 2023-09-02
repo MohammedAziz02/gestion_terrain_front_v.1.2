@@ -290,8 +290,9 @@ sendReservation(modal: NgbModalRef) {
 
 
 
-   extractDateFromArray(firstDate: Date): string {
-     const formattedDate = `${firstDate.getDate()} ${firstDate.toLocaleString('default', { month: 'long' })} ${firstDate.getFullYear()}`;
-      return formattedDate;
-   }
+  extractDateFromArray(firstDate: Date): string {
+    const formattedDate = `${firstDate.getDate()} ${firstDate.toLocaleString('en-US', { month: 'long' })} ${firstDate.getFullYear()}`;
+    return formattedDate;
+  }
+  
 }
