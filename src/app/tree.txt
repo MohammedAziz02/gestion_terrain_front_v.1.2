@@ -1,0 +1,138 @@
+Folder PATH listing
+Volume serial number is F0F0-17B6
+C:.
+¦   app-routing.module.ts
+¦   app.component.css
+¦   app.component.html
+¦   app.component.spec.ts
+¦   app.component.ts
+¦   app.module.ts
+¦   test.js
+¦   tree.txt
+¦   
++---core
+    +---components
+    ¦   +---accueil
+    ¦   ¦   ¦   accueil.component.css
+    ¦   ¦   ¦   accueil.component.html
+    ¦   ¦   ¦   accueil.component.ts
+    ¦   ¦   ¦   
+    ¦   ¦   +---login
+    ¦   ¦   ¦       login.component.css
+    ¦   ¦   ¦       login.component.html
+    ¦   ¦   ¦       login.component.ts
+    ¦   ¦   ¦       
+    ¦   ¦   +---match-today
+    ¦   ¦   ¦       match-today.component.css
+    ¦   ¦   ¦       match-today.component.html
+    ¦   ¦   ¦       match-today.component.ts
+    ¦   ¦   ¦       
+    ¦   ¦   +---reset-password
+    ¦   ¦   ¦       reset-password.component.css
+    ¦   ¦   ¦       reset-password.component.html
+    ¦   ¦   ¦       reset-password.component.ts
+    ¦   ¦   ¦       
+    ¦   ¦   +---signup
+    ¦   ¦   ¦       signup.component.css
+    ¦   ¦   ¦       signup.component.html
+    ¦   ¦   ¦       signup.component.ts
+    ¦   ¦   ¦       
+    ¦   ¦   +---update-password
+    ¦   ¦   ¦       update-password.component.css
+    ¦   ¦   ¦       update-password.component.html
+    ¦   ¦   ¦       update-password.component.ts
+    ¦   ¦   ¦       
+    ¦   ¦   +---verify-token
+    ¦   ¦           verify-token.component.css
+    ¦   ¦           verify-token.component.html
+    ¦   ¦           verify-token.component.ts
+    ¦   ¦           
+    ¦   +---edit-porfile
+    ¦   ¦       edit-porfile.component.css
+    ¦   ¦       edit-porfile.component.html
+    ¦   ¦       edit-porfile.component.ts
+    ¦   ¦       
+    ¦   +---generic-reservation
+    ¦   ¦       generic-reservation.component.css
+    ¦   ¦       generic-reservation.component.html
+    ¦   ¦       generic-reservation.component.ts
+    ¦   ¦       
+    ¦   +---home
+    ¦   ¦       home.component.css
+    ¦   ¦       home.component.html
+    ¦   ¦       home.component.ts
+    ¦   ¦       
+    ¦   +---my-reservations
+    ¦   ¦       my-reservations.component.css
+    ¦   ¦       my-reservations.component.html
+    ¦   ¦       my-reservations.component.ts
+    ¦   ¦       
+    ¦   +---pagenotfound
+    ¦   ¦       pagenotfound.component.css
+    ¦   ¦       pagenotfound.component.html
+    ¦   ¦       pagenotfound.component.ts
+    ¦   ¦       
+    ¦   +---profile
+    ¦   ¦       profile.component.css
+    ¦   ¦       profile.component.html
+    ¦   ¦       profile.component.ts
+    ¦   ¦       
+    ¦   +---reservation-admin
+    ¦   ¦       reservation-admin.component.css
+    ¦   ¦       reservation-admin.component.html
+    ¦   ¦       reservation-admin.component.ts
+    ¦   ¦       
+    ¦   +---reservation-user
+    ¦   ¦       reservation-user.component.css
+    ¦   ¦       reservation-user.component.html
+    ¦   ¦       reservation-user.component.ts
+    ¦   ¦       
+    ¦   +---reserve-terrain-foot
+    ¦   ¦       reserve-terrain-foot.component.css
+    ¦   ¦       reserve-terrain-foot.component.html
+    ¦   ¦       reserve-terrain-foot.component.ts
+    ¦   ¦       
+    ¦   +---reserve-terrain-volley
+    ¦           reserve-terrain-volley.component.css
+    ¦           reserve-terrain-volley.component.html
+    ¦           reserve-terrain-volley.component.ts
+    ¦           
+    +---constants
+    ¦       constantes.ts
+    ¦       
+    +---guards
+    ¦       AuthGuard.ts
+    ¦       TokenGuard.ts
+    ¦       
+    +---helpers
+    ¦       auth.interceptor.ts
+    ¦       BaseComponent.ts
+    ¦       
+    +---models
+    ¦       DeleteReservationDto.ts
+    ¦       GetDatesAboutReservation.ts
+    ¦       login.ts
+    ¦       matchOfToday.ts
+    ¦       PasswordResetDto.ts
+    ¦       ReservationDto.ts
+    ¦       Signup.ts
+    ¦       UserDto.ts
+    ¦       UserReservationDate.ts
+    ¦       
+    +---services
+    ¦       authservice.service.ts
+    ¦       pdf-generator.service.ts
+    ¦       profile.service.ts
+    ¦       reservation.service.ts
+    ¦       token-storage.service.ts
+    ¦       user.service.ts
+    ¦       whether.service.ts
+    ¦       
+    +---shared
+    ¦       messagesharedsinguplogin.service.ts
+    ¦       sweat-alert-service.service.ts
+    ¦       
+    +---utils
+            BaseService.ts
+            DateHelper.ts
+            
