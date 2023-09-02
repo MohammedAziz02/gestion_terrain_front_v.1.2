@@ -106,10 +106,12 @@ export class GenericReservationComponent {
     this.selectedTerrain = selectedStadium !== null ? selectedStadium : '';
     this.dates = DateHelper.generateDateList();
     this.loadReservedSlots();
+    // alhoceima Weather
     this.whetherService.getWheatherInformations(35.2516, -3.9372).subscribe(
       (response) => {
         this.isWheatherLoading = false;
         this.dataoftemperature = response;
+        console.log("this.temperature ",this.dataoftemperature);
       },
       (error) => {
         this.isWheatherLoading = false;
