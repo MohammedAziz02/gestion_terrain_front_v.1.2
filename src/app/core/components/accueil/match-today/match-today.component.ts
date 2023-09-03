@@ -33,6 +33,7 @@ export class MatchTodayComponent {
       data => {
         console.log("today",data);
         this.matchtodaydata = data;
+        console.log("this.   ",this.matchtodaydata);
       },
       err => {
         console.log(err);

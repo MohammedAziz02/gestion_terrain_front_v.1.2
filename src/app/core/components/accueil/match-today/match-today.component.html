@@ -33,7 +33,7 @@
       formatDate(match.date_match) }}</div>
     <div class="card-body">
       <div class="row">
-        <div class="col-5 d-flex flex-column justify-content-center align-items-center ">
+        <div class="col-4 d-flex flex-column justify-content-center align-items-center ">
           <div class="image-container text-center">
             <img [src]="'../../assets/images/' + match.user.picture" alt="{{ match.user.firstName }}" class="img-fluid border border-2 ">
           </div>
@@ -41,10 +41,11 @@
             <p class="text-break fs-5 text-light fw-bold">{{ match.user.firstName }} {{ match.user.lastName }} </p>
           </div>
         </div>
-        <div class="col-2 text-center">
+        <div class="col-4 text-center">
           <h1 class="text-light">VS</h1>
+          <span class="text-light">{{match.terrain.name}}</span>
         </div>
-        <div class="col-5 d-flex flex-column justify-content-center align-items-center">
+        <div class="col-4 d-flex flex-column justify-content-center align-items-center">
           <div class="image-container text-center">
             <img
               src="https://st3.depositphotos.com/3581215/18899/v/450/depositphotos_188994514-stock-illustration-vector-illustration-male-silhouette-profile.jpg"
